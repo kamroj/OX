@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 /**
  * @author Kamil Rojek
  */
@@ -26,7 +28,7 @@ public class BoardTest {
 
     @Test(dataProvider = "dataBoardValidParameters")
     public void testInitializeBoardWithValidParameters(int columnsNumber, int rowsNumber){
-        Board board = new Board(columnsNumber, rowsNumber);
+        new Board(columnsNumber, rowsNumber);
     }
 
     @DataProvider
@@ -40,6 +42,13 @@ public class BoardTest {
 
     @Test(dataProvider = "dataBoardInvalidParameters", expectedExceptions = IllegalArgumentException.class)
     public void testInitializeBoardWithInvalidParameters(int columnsNumber, int rowsNumber){
-        Board board = new Board(columnsNumber, rowsNumber);
+        new Board(columnsNumber, rowsNumber);
+    }
+
+    @Test
+    public void testValidEqualsOfBoards(){
+        Board board = new Board(3,3);
+        Board board1 = new Board(3,3);
+        Assert.assertTrue(board.equals(board1));
     }
 }
