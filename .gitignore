@@ -3,6 +3,7 @@
 traget/
 *.iml
 .idea/
+target/
 
 # Sonarlint plugin
 .idea/sonarlint
