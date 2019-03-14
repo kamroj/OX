@@ -1,6 +1,8 @@
 package kamil.rojek.ox;
 
 /**
+ * field with types that fill board
+ *
  * @author Kamil Rojek
  */
 public class Seed {

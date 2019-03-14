@@ -1,6 +1,8 @@
 package kamil.rojek.ox;
 
 /**
+ * Board holding fields
+ *
  * @author Kamil Rojek
  */
 public class Board {
