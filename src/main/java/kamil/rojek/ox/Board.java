@@ -10,11 +10,11 @@ import java.util.Arrays;
 public class Board {
     Seed[][] fields;
 
-    public Board(int columnsNumber, int rowsNumber) {
-        if (columnsNumber <= 2 || rowsNumber <= 2)
+    public Board(int rowsNumber, int columnsNumber) {
+        if (rowsNumber <= 2 || columnsNumber <= 2)
             throw new IllegalArgumentException("Minimum fields size must be 3x3");
 
-        fields = new Seed[columnsNumber][rowsNumber];
+        fields = new Seed[rowsNumber][columnsNumber];
     }
 
     @Override
