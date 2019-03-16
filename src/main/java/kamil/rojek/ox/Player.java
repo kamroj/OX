@@ -20,15 +20,22 @@ public class Player {
         return type;
     }
 
-    public String toString(){
-        return "Player name: " + name + " SeedType: " + type;
-    }
-
     public void addPoint() {
         score++;
     }
 
     public int getScore() {
         return score;
+    }
+
+    public String toString(){
+        return "Player name: " + name + " SeedType: " + type;
+    }
+
+    public boolean equals(Object obj){
+        if (obj == null)
+            return false;
+
+        return this.toString().equals(obj.toString());
     }
 }
