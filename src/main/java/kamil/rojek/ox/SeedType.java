@@ -3,7 +3,7 @@ package kamil.rojek.ox;
 /**
  * @author Kamil Rojek
  */
-public enum SeedType {
+enum SeedType {
     Nought("O"),
     Cross("X"),
     None(" ");

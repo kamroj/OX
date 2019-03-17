@@ -5,9 +5,9 @@ import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
 /**
  * @author Kamil Rojek
  */
-public class BoardCreator {
+class BoardCreator {
 
-    public Board createNewBoard(int rowsNumber, int columnsNumber) throws BoardCreatorException {
+    Board createNewBoard(int rowsNumber, int columnsNumber) throws BoardCreatorException {
         try {
             Board board = new Board(rowsNumber, columnsNumber);
             fillBoardWithNoneSeeds(board);

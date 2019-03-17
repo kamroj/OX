@@ -7,10 +7,10 @@ import java.util.Arrays;
  *
  * @author Kamil Rojek
  */
-public class Board {
+class Board {
     Seed[][] fields;
 
-    public Board(int rowsNumber, int columnsNumber) {
+    Board(int rowsNumber, int columnsNumber) {
         if (rowsNumber <= 2 || columnsNumber <= 2)
             throw new IllegalArgumentException("Minimum fields size must be 3x3");
 

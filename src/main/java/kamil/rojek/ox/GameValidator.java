@@ -1,43 +1,40 @@
 package kamil.rojek.ox;
 
-public class GameValidator {
+class GameValidator {
     private Board board;
     private SeedType type;
     private int fieldsWithSameTypeCouter = 0;
     private final int WINNING_SCORE = 3;
 
-    public GameValidator(Board board) {
+    GameValidator(Board board) {
         this.board = board;
     }
 
-    public boolean validateSeed(int rowNumber, int columnNumber) {
+    boolean validateSeed(int rowNumber, int columnNumber) {
         return board.fields[rowNumber][columnNumber].type.equals(SeedType.None);
     }
 
-    public boolean validateWin(int rowNumber, int columnNumber) {
+    boolean validateWin(int rowNumber, int columnNumber) {
         type = board.fields[rowNumber][columnNumber].type;
 
-        //check horizontaly
-        //move left
-//        while (fieldsWithSameTypeCouter != WINNING_SCORE){
-//            if (columnNumber == 0)
-//                return false;
-//
-//
-//        }
+        return validateHorizotnaly(rowNumber, columnNumber) ||
+                validateVertically(rowNumber, columnNumber) ||
+                validateDiagonally(rowNumber, columnNumber);
 
+    }
+
+    private boolean validateHorizotnaly(int rowNumber, int columnNumber) {
         if (checkHorizontalRightDirection(rowNumber, columnNumber))
             return true;
         else if (checkHorizontalLeftDirection(rowNumber, columnNumber))
             return true;
-        else fieldsWithSameTypeCouter = 0;
+        else {
+            fieldsWithSameTypeCouter = 0;
+            return false;
+        }
+    }
 
-        if (checkHorizontalDownDirection(rowNumber, columnNumber))
-            return true;
-        else if (checkHorizontalUpDirection(rowNumber, columnNumber))
-            return true;
-        else fieldsWithSameTypeCouter = 0;
-
+    private boolean validateDiagonally(int rowNumber, int columnNumber) {
         if (checkDiagonallyDownLeftDirection(rowNumber, columnNumber))
             return true;
         else if (checkDiagonallyUpLeftDirection(rowNumber, columnNumber))
@@ -46,18 +43,22 @@ public class GameValidator {
             return true;
         else if (checkDiagonallyUpRightDirection(rowNumber, columnNumber))
             return true;
+        else {
+            fieldsWithSameTypeCouter = 0;
+            return false;
+        }
+    }
 
-        return false;
-
+    private boolean validateVertically(int rowNumber, int columnNumber) {
+        if (checkHorizontalDownDirection(rowNumber, columnNumber))
+            return true;
+        else if (checkHorizontalUpDirection(rowNumber, columnNumber))
+            return true;
+        else return false;
     }
 
     private boolean checkHorizontalRightDirection(int rowNumber, int columnNumber) {
-        //move left
-
         int columnToCheck = columnNumber;
-
-        if (columnNumber > board.fields.length)
-            return false;
 
         while (fieldsWithSameTypeCouter != WINNING_SCORE) {
             if (board.fields.length - 1 < columnToCheck)
@@ -72,12 +73,7 @@ public class GameValidator {
     }
 
     private boolean checkHorizontalLeftDirection(int rowNumber, int columnNumber) {
-        //move left
-
         int columnToCheck = columnNumber;
-
-        if (columnNumber < 0)
-            return false;
 
         while (fieldsWithSameTypeCouter != WINNING_SCORE) {
             columnToCheck--;
@@ -94,12 +90,7 @@ public class GameValidator {
     }
 
     private boolean checkHorizontalDownDirection(int rowNumber, int columnNumber) {
-        //move left
-
         int rowToCheck = rowNumber;
-
-        if (columnNumber > board.fields.length)
-            return false;
 
         while (fieldsWithSameTypeCouter != WINNING_SCORE) {
             if (board.fields.length - 1 < rowToCheck)
@@ -114,12 +105,7 @@ public class GameValidator {
     }
 
     private boolean checkHorizontalUpDirection(int rowNumber, int columnNumber) {
-        //move left
-
         int rowToCheck = rowNumber;
-
-        if (rowNumber < 0)
-            return false;
 
         while (fieldsWithSameTypeCouter != WINNING_SCORE) {
             rowToCheck--;
@@ -136,13 +122,8 @@ public class GameValidator {
     }
 
     private boolean checkDiagonallyDownLeftDirection(int rowNumber, int columnNumber) {
-        //move left
-
         int rowToCheck = rowNumber;
         int columnToCheck = columnNumber;
-
-        if (rowToCheck > board.fields.length || columnToCheck > board.fields.length)
-            return false;
 
         while (fieldsWithSameTypeCouter != WINNING_SCORE) {
             if (rowToCheck >= board.fields.length || columnToCheck >= board.fields.length)
@@ -160,8 +141,6 @@ public class GameValidator {
 
 
     private boolean checkDiagonallyUpLeftDirection(int rowNumber, int columnNumber) {
-        //move left
-
         int rowToCheck = rowNumber;
         int columnToCheck = columnNumber;
 
@@ -184,8 +163,6 @@ public class GameValidator {
     }
 
     private boolean checkDiagonallyDownRightDirection(int rowNumber, int columnNumber) {
-        //move left
-
         int rowToCheck = rowNumber;
         int columnToCheck = columnNumber;
 
@@ -206,8 +183,6 @@ public class GameValidator {
     }
 
     private boolean checkDiagonallyUpRightDirection(int rowNumber, int columnNumber) {
-        //move left
-
         int rowToCheck = rowNumber;
         int columnToCheck = columnNumber;
 

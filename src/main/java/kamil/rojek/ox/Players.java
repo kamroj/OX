@@ -3,19 +3,24 @@ package kamil.rojek.ox;
 import kamil.rojek.ox.CustomExceptions.PlayerSeedTypeException;
 import java.util.HashMap;
 
-public class Players {
+class Players {
     private HashMap<Integer, Player> players;
     private int playerIndex = 1;
 
-    public Players() {
+    Players() {
         initializePlayers();
     }
 
-    public int getAllPlayers() {
+    int getAllPlayers() {
         return players.size();
     }
 
-    public Player getCurrentPlayer() {
+    Player getCurrentPlayer() {
+        return players.get(playerIndex);
+    }
+
+    Player getNextPlayer() {
+        playerIndex = playerIndex == 2 ? 1 : 2;
         return players.get(playerIndex);
     }
 
@@ -28,10 +33,5 @@ public class Players {
         catch (PlayerSeedTypeException e) {
             e.getMessage();
         }
-    }
-
-    public Player getNextPlayer() {
-        playerIndex = playerIndex == 2 ? 1 : 2;
-        return players.get(playerIndex);
     }
 }
