@@ -17,6 +17,10 @@ class Board {
         fields = new Seed[rowsNumber][columnsNumber];
     }
 
+    void markField(int rowNumber, int columnNumber, SeedType type) {
+        fields[rowNumber][columnNumber].type = type;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null)

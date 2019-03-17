@@ -1,5 +1,6 @@
 package kamil.rojek.ox;
 
+import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -68,5 +69,25 @@ public class BoardTest {
         Board board = new Board(rows1,columns1);
         Board board1 = new Board(rows2, columns2);
         Assert.assertFalse(board.equals(board1));
+    }
+
+    @DataProvider
+    public static Object[][] dataMarkFeelds(){
+        return new Object[][]{
+            {2,2, SeedType.Cross, SeedType.Cross, true},
+            {2,2, SeedType.Cross, SeedType.Nought, false},
+            {2,2, SeedType.Nought, SeedType.Cross, false},
+            {1,3, SeedType.Cross, SeedType.Cross, true},
+            {4,4, SeedType.Nought, SeedType.Nought, true},
+            {2,1, SeedType.Cross, SeedType.Nought, false}
+        };
+    }
+
+    @Test(dataProvider = "dataMarkFeelds")
+    public void testMarkFeeld(int rowNumbers, int columnNumbers, SeedType fill, SeedType expected, boolean result) throws BoardCreatorException {
+        Board board = new BoardCreator().createNewBoard(10,10);
+        board.markField(rowNumbers,columnNumbers, fill);
+
+        Assert.assertEquals(board.fields[rowNumbers][columnNumbers].type.equals(expected), result);
     }
 }

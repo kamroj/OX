@@ -154,6 +154,17 @@ public class GameValidatorTest {
         Assert.assertTrue(gameValidator.validateWin(1, 1));
     }
 
+    @Test
+    public void test() throws BoardCreatorException, PlayerSeedTypeException {
+        Board board = new BoardCreator().createNewBoard(3,3);
+        board.fields[0][0].type = SeedType.Cross;
+        board.fields[1][0].type = SeedType.Nought;
+        board.fields[1][1].type = SeedType.Cross;
+
+        GameValidator gameValidator = new GameValidator(board);
+        Assert.assertFalse(gameValidator.validateWin(0, 0));
+    }
+
     @DataProvider
     public static Object[][] dataFillBoardWithSeeds() throws BoardCreatorException {
         return new Object[][]{
