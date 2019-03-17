@@ -1,5 +1,6 @@
 package kamil.rojek.ox;
 
+import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
 import kamil.rojek.ox.CustomExceptions.PlayerSeedTypeException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -69,4 +70,11 @@ public class PlayerTest {
     public void testNullSeedTypeCannotBeInitiliazedAsPlayerSeed() throws PlayerSeedTypeException {
         Player player = new Player("Kamil", null);
     }
+
+//    @Test
+//    public void testPlayerTakeTurn() throws PlayerSeedTypeException, BoardCreatorException {
+//        Player player = new Player("Kamil", SeedType.Cross);
+//        Board board = new BoardCreator().createNewBoard(3,3);
+//
+//    }
 }
