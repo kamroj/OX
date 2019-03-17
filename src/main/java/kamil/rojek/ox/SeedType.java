@@ -13,4 +13,8 @@ enum SeedType {
     SeedType(String type){
         this.type = type;
     }
+
+    public String getValue(){
+        return type;
+    }
 }
