@@ -4,7 +4,7 @@ The player who succeeds in placing e.g. three marks in a horizontal, vertical or
 For more information: https://en.wikipedia.org/wiki/Tic-tac-toe
 
 ## PREREQUISITES
-Java 11
+Java 8
 
 ## RUNNING
-Nothing working yet
+You can play single game with board 3x3
