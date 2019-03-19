@@ -8,3 +8,6 @@ Java 8
 
 ## RUNNING
 You can play single game with board 3x3
+
+To run project without tests use bash script: runProject.sh
+To run project with tests use bash script: runProjectWithTests.sh

@@ -1,4 +1,4 @@
-package kamil.rojek.ox;
+package kamil.rojek.ox.Game;
 
 import java.util.Arrays;
 

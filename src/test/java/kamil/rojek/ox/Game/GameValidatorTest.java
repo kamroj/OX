@@ -1,4 +1,4 @@
-package kamil.rojek.ox;
+package kamil.rojek.ox.Game;
 
 import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
 import kamil.rojek.ox.CustomExceptions.PlayerSeedTypeException;

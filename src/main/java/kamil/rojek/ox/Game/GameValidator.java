@@ -1,4 +1,4 @@
-package kamil.rojek.ox;
+package kamil.rojek.ox.Game;
 
 class GameValidator {
     private Board board;

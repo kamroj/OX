@@ -1,4 +1,4 @@
-package kamil.rojek.ox;
+package kamil.rojek.ox.Game;
 
 //to test
 class Round {

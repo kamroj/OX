@@ -1,25 +1,26 @@
-package kamil.rojek.ox;
+package kamil.rojek.ox.Game;
 
 import kamil.rojek.ox.CustomExceptions.PlayerSeedTypeException;
 import java.util.HashMap;
 
-class Players {
+public class Players implements IPlayers{
     private HashMap<Integer, Player> players;
     private int playerIndex = 1;
 
-    Players() {
+    public Players() {
         initializePlayers();
     }
 
+    //to remove?
     int getAllPlayers() {
         return players.size();
     }
 
-    Player getCurrentPlayer() {
+    public Player getCurrentPlayer() {
         return players.get(playerIndex);
     }
 
-    Player getNextPlayer() {
+    public Player getNextPlayer() {
         playerIndex = playerIndex == 2 ? 1 : 2;
         return players.get(playerIndex);
     }

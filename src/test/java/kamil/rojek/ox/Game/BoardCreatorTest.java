@@ -1,6 +1,9 @@
-package kamil.rojek.ox;
+package kamil.rojek.ox.Game;
 
 import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
+import kamil.rojek.ox.Game.Board;
+import kamil.rojek.ox.Game.BoardCreator;
+import kamil.rojek.ox.Game.SeedType;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

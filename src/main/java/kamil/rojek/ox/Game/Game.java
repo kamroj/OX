@@ -1,17 +1,17 @@
-package kamil.rojek.ox;
+package kamil.rojek.ox.Game;
 
 import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
 
-class Game {
-    private Players players;
+public class Game implements IGame {
+    private IPlayers players;
     private Player player;
     private Board board;
 
-    Game(Players players) {
+    public Game(IPlayers players) {
         this.players = players;
     }
 
-    void startGame(){
+    public void startGame(){
         initialize();
         roundFlow();
     }
