@@ -1,28 +1,36 @@
 package kamil.rojek.ox;
 
+//przetestowac
 public class BoardDisplay {
     private Board board;
 
-    public BoardDisplay(Board board) {
-        this.board = board;
+    public BoardDisplay(){
     }
 
-    void updateView(){
+    void updateView(Board board){
+        this.board = board;
         updateBoard();
     }
 
     private void updateBoard(){
+        int rowCounter = 0;
+        int columnCounter = 0;
+
         System.out.print("\n   ");
-        for (int i = 0; i < board.fields.length; i++) {
-            System.out.print(" 1  ");
+
+        for (int i = 0; i < board.fields[0].length; i++) {
+            System.out.print(" " + columnCounter + "  ");
+            columnCounter++;
         }
+
         System.out.println();
         lineGenerator();
 
         for (int i = 0; i < board.fields.length; i++) {
-            System.out.print("1 | ");
+            System.out.print(rowCounter + " | ");
+            rowCounter++;
+
             for (int j = 0; j < board.fields[i].length; j++) {
-                board.fields[i][j].type = SeedType.Cross;
                 System.out.print(board.fields[i][j].type.getValue() + " | ");
             }
             System.out.println();
@@ -31,7 +39,9 @@ public class BoardDisplay {
     }
 
     private void lineGenerator() {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
+        sb.append("  ");
+
         for (int i = 0; i <= lineLongCounter(); i++) {
             sb.append("-");
         }
@@ -40,7 +50,7 @@ public class BoardDisplay {
     }
 
     private int lineLongCounter(){
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < board.fields[0].length; i++) {
             sb.append(board.fields[0][i].type.getValue() + " | ");

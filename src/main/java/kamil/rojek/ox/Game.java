@@ -2,28 +2,41 @@ package kamil.rojek.ox;
 
 import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
 
-public class Game {
+class Game {
     private Players players;
     private Player player;
     private Board board;
 
-    public Game(Players players) {
+    Game(Players players) {
         this.players = players;
     }
 
-    public void startGame(){
+    void startGame(){
         initialize();
         roundFlow();
     }
 
     private void roundFlow() {
         GameValidator gameValidator = new GameValidator(board);
+        BoardDisplay boardDisplay = new BoardDisplay();
+        Round round;
 
         do {
-            Round round = new Round(player);
+            round = new Round(player);
+            boardDisplay.updateView(board);
             round.startRound(board);
             player = players.getNextPlayer();
-        } while (!gameValidator.validateWin(0, 0));
+        } while (!gameValidator.validateWin(round.getLastMarkedRow(), round.getLastMarkedColumn())
+                    && !gameValidator.isDraw());
+
+        boardDisplay.updateView(board);
+
+        if (gameValidator.isDraw()) {
+            System.out.println("Round has ended with Draw!");
+        } else {
+            Player winner = round.getLastPlayerOfRound();
+            System.out.println("The winner of this round is: " + winner.toString());
+        }
     }
 
     private void initialize() {

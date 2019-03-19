@@ -166,7 +166,7 @@ public class GameValidatorTest {
     }
 
     @DataProvider
-    public static Object[][] dataFillBoardWithSeeds() throws BoardCreatorException {
+    public static Object[][] dataFillBoardWithSeedsWithWinCombination() throws BoardCreatorException {
         return new Object[][]{
                 {createBoardWithPresetOfFields(3,3,
                                 new ArrayList<>(Arrays.asList(
@@ -200,10 +200,34 @@ public class GameValidatorTest {
         };
     }
 
-    @Test(dataProvider = "dataFillBoardWithSeeds")
+    @Test(dataProvider = "dataFillBoardWithSeedsWithWinCombination")
     public void testValidationIfPlayerWon(Board board, int rowNumber, int columnNumber, boolean result){
         GameValidator gameValidator = new GameValidator(board);
         Assert.assertEquals(gameValidator.validateWin(rowNumber, columnNumber), result);
+    }
+
+
+    @DataProvider
+    public static Object[][] dataFillBoardWithSeedsWithDrawCombination() throws BoardCreatorException {
+        return new Object[][]{
+                {createBoardWithPresetOfFields(3, 3,
+                        new ArrayList<>(Arrays.asList(
+                                new Mark(0, 0, SeedType.Cross),
+                                new Mark(1, 0, SeedType.Nought),
+                                new Mark(2, 0, SeedType.Cross),
+                                new Mark(0, 1, SeedType.Nought),
+                                new Mark(1, 1, SeedType.Cross),
+                                new Mark(2, 1, SeedType.Nought),
+                                new Mark(0, 2, SeedType.Cross),
+                                new Mark(1, 2, SeedType.Nought),
+                                new Mark(2, 2, SeedType.Cross))))},
+        };
+    }
+
+    @Test(dataProvider = "dataFillBoardWithSeedsWithDrawCombination")
+    public void testGameValidatorDraw(Board board){
+        GameValidator gameValidator = new GameValidator(board);
+        Assert.assertTrue(gameValidator.isDraw());
     }
 
     //helpers

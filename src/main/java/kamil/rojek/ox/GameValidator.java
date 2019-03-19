@@ -25,6 +25,18 @@ class GameValidator {
 
     }
 
+    boolean isDraw() {
+        boolean isDraw = true;
+
+        for (int i = 0; i < board.fields.length; i++) {
+            for (int j = 0; j < board.fields[i].length; j++) {
+                if (board.fields[i][j].type.equals(SeedType.None))
+                    isDraw = false;
+            }
+        }
+        return isDraw;
+    }
+
     private boolean validateHorizotnaly(int rowNumber, int columnNumber) {
         if (checkHorizontalRightDirection(rowNumber, columnNumber))
             return true;
@@ -207,5 +219,4 @@ class GameValidator {
         }
         return true;
     }
-
 }
