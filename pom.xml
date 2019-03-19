@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.kamil.rojek</groupId>
-    <artifactId>OX game</artifactId>
+    <artifactId>ox</artifactId>
     <version>0.1</version>
     <name>OX</name>
     <description>Simple tic tac toe game</description>
