@@ -1,5 +1,8 @@
 package kamil.rojek.ox.Game;
 
+import kamil.rojek.ox.InputOutput.InputValidator;
+import kamil.rojek.ox.InputOutput.SoutWrapper;
+
 //to test
 class Round {
     private Player player;
@@ -12,7 +15,7 @@ class Round {
     }
 
     void startRound (Board board){
-        System.out.println("Turn move: " + player.toString());
+        SoutWrapper.printMsg("Turn move: " + player.toString());
         this.board = board;
         takeTurn();
     }
@@ -33,9 +36,9 @@ class Round {
         GameValidator gameValidator = new GameValidator(board);
 
         do {
-            System.out.print("Type number of row: ");
+            SoutWrapper.printMsg("Type number of row: ");
             rowNumber = InputValidator.getIntegerInput();
-            System.out.print("Type number of column: ");
+            SoutWrapper.printMsg("Type number of column: ");
             columnNumber = InputValidator.getIntegerInput();
 
         } while (!gameValidator.validateSeed(rowNumber, columnNumber));

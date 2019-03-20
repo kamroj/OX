@@ -1,4 +1,4 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.InputOutput;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class InputValidator {
     private static Scanner scanner;
 
-    static int getIntegerInput(){
+    public static int getIntegerInput(){
         scanner = new Scanner(System.in);
 
         while (!scanner.hasNextInt()) {

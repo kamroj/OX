@@ -1,6 +1,7 @@
 package kamil.rojek.ox.Game;
 
 import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
+import kamil.rojek.ox.InputOutput.SoutWrapper;
 
 public class Game implements IGame {
     private IPlayers players;
@@ -32,10 +33,10 @@ public class Game implements IGame {
         boardDisplay.updateView(board);
 
         if (gameValidator.isDraw()) {
-            System.out.println("Round has ended with Draw!");
+            SoutWrapper.printMsg("Round has ended with Draw!");
         } else {
             Player winner = round.getLastPlayerOfRound();
-            System.out.println("The winner of this round is: " + winner.toString());
+            SoutWrapper.printMsg("The winner of this round is: " + winner.toString());
         }
     }
 

@@ -1,9 +1,6 @@
 package kamil.rojek.ox.Game;
 
 import kamil.rojek.ox.CustomExceptions.PlayerSeedTypeException;
-import kamil.rojek.ox.Game.Player;
-import kamil.rojek.ox.Game.Round;
-import kamil.rojek.ox.Game.SeedType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
