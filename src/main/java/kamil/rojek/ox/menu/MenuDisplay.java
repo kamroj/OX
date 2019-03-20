@@ -28,6 +28,10 @@ public class MenuDisplay {
                 initiliazeSettings();
                 break;
             case 3:
+                SoutWrapper.getInstance().getMsg(LocalizationKey.INFO_ABOUT_GAME);
+                initiliazeMenu();
+            case 4:
+                SoutWrapper.getInstance().getMsg(LocalizationKey.GOODBYE_MSG);
                 System.exit(0);
         }
     }
@@ -49,12 +53,13 @@ public class MenuDisplay {
         SoutWrapper.printMsg("-------------------------");
         SoutWrapper.getInstance().getMsg(LocalizationKey.START_GAME);
         SoutWrapper.getInstance().getMsg(LocalizationKey.OPTIONS);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.INFO_MSG);
         SoutWrapper.getInstance().getMsg(LocalizationKey.QUIT);
         SoutWrapper.printMsg("-------------------------");
 
         do {
             selection = InputValidator.getIntegerInput();
-        } while (selection < 1 || selection > 3);
+        } while (selection < 1 || selection > 4);
 
         return selection;
     }
