@@ -2,6 +2,6 @@ tes1231231 121 22  1t2
 
 ===============================================
 Default Suite
-Total tests run: 31, Failures: 0, Skips: 0
+Total tests run: 270, Failures: 0, Skips: 0
 ===============================================
 

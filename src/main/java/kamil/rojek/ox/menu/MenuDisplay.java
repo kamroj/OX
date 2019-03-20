@@ -1,5 +1,6 @@
 package kamil.rojek.ox.menu;
 
+import kamil.rojek.ox.CustomExceptions.InvalidSettingException;
 import kamil.rojek.ox.Game.IGame;
 import kamil.rojek.ox.InputOutput.InputValidator;
 import kamil.rojek.ox.InputOutput.SoutWrapper;
@@ -8,8 +9,8 @@ import kamil.rojek.ox.InputOutput.SoutWrapper;
  * @author Kamil Rojek
  */
 public class MenuDisplay {
-    IGame game;
-    Settings settings;
+    private IGame game;
+    private Settings settings;
 
     public MenuDisplay(IGame game, Settings settings) {
         this.game = game;
@@ -17,14 +18,13 @@ public class MenuDisplay {
     }
 
     public void initiliazeMenu() {
-        SettingsDisplay settingsDisplay = new SettingsDisplay();
-
         switch (menuSelector()){
             case 1:
                 game.startGame();
                 break;
             case 2:
-                settingsDisplay.initiliazeSettings(settings);
+                initiliazeSettings();
+                break;
             case 3:
                 System.exit(0);
         }
@@ -47,5 +47,68 @@ public class MenuDisplay {
         return selection;
     }
 
+
+    private void initiliazeSettings() {
+
+        switch (optionsSelector()){
+            case 1:
+                changeBoardSize();
+                break;
+            case 2:
+                changeWinningLimitSize();
+                break;
+            case 3:
+                initiliazeMenu();
+        }
+    }
+
+    private int optionsSelector() {
+        int selection;
+
+        SoutWrapper.printMsg("Select one from this options.");
+        SoutWrapper.printMsg("-------------------------");
+        SoutWrapper.printMsg("1 - Change board size");
+        SoutWrapper.printMsg("2 - Change winning limit");
+        SoutWrapper.printMsg("3 - Go to main menu");
+        SoutWrapper.printMsg("-------------------------");
+
+        do {
+            selection = InputValidator.getIntegerInput();
+        } while (selection <= 0 || selection >= 4);
+
+        return selection;
+    }
+
+    void changeBoardSize() {
+        boolean success = false;
+        while (!success) {
+            try {
+                SoutWrapper.printMsg("Set row size: ");
+                settings.setRowSize(InputValidator.getIntegerInput());
+                SoutWrapper.printMsg("Set column size: ");
+                settings.setColumnSize(InputValidator.getIntegerInput());
+                success = true;
+            } catch (InvalidSettingException e) {
+                SoutWrapper.printMsg(e.getMessage());
+            }
+        }
+
+        initiliazeSettings();
+    }
+
+    void changeWinningLimitSize() {
+        boolean success = false;
+        while (!success) {
+            try {
+                SoutWrapper.printMsg("Set winning limit: ");
+                settings.setWinningLimit(InputValidator.getIntegerInput());
+                success = true;
+            } catch (InvalidSettingException e) {
+                SoutWrapper.printMsg(e.getMessage());
+            }
+        }
+
+        initiliazeSettings();
+    }
 
 }

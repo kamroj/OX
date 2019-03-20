@@ -2,14 +2,17 @@ package kamil.rojek.ox.Game;
 
 import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
 import kamil.rojek.ox.InputOutput.SoutWrapper;
+import kamil.rojek.ox.menu.Settings;
 
 public class Game implements IGame {
     private IPlayers players;
     private Player player;
     private Board board;
+    private Settings settings;
 
-    public Game(IPlayers players) {
+    public Game(IPlayers players, Settings settings) {
         this.players = players;
+        this.settings = settings;
     }
 
     public void startGame(){
@@ -44,7 +47,7 @@ public class Game implements IGame {
         BoardCreator boardCreator = new BoardCreator();
 
         try {
-            board = boardCreator.createNewBoard(3,3);
+            board = boardCreator.createNewBoard(settings.getRowSize(),settings.getColumnSize());
         }
         catch (BoardCreatorException e) {
             e.printStackTrace();

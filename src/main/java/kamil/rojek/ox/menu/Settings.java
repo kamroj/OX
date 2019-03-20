@@ -6,9 +6,9 @@ import kamil.rojek.ox.CustomExceptions.InvalidSettingException;
  * @author Kamil Rojek
  */
 public class Settings {
-    private int rowSize;
-    private int columnSize;
-    private int winningLimit;
+    private int rowSize = 3;
+    private int columnSize = 3;
+    private int winningLimit = 3;
 
     void setRowSize(int rowSize) throws InvalidSettingException {
         if (rowSize < 3 || rowSize > 30) {
