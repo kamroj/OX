@@ -114,4 +114,19 @@ public class SettingsTest {
         settings.setWinningLimit(winningLimit);
         Assert.assertEquals(settings.getWinningLimit(), winningLimit);
     }
+
+    @DataProvider
+    public static Object[][] dataSettingRounds(){
+        return new Object[][] {
+                {3,3},{4,4},{6,6},
+                {5,5},{6,6},{7,7},
+                {8,8},{9,9},{10,10}
+        };
+    }
+
+    @Test(dataProvider = "dataSettingRounds")
+    public void testSetNumberOfRounds(int numberOfRounds, int result) throws InvalidSettingException {
+        settings.setNumberOfRounds(numberOfRounds);
+        Assert.assertEquals(settings.getNumberOfRounds(), result);
+    }
 }
