@@ -6,15 +6,17 @@ import java.util.Scanner;
  * @author Kamil Rojek
  */
 public class InputValidator {
-    private Scanner scanner;
+    //private Scanner scanner;
 
-    public InputValidator(Scanner scanner) {
-        this.scanner = scanner;
-    }
+//    public InputValidator(Scanner scanner) {
+//        this.scanner = scanner;
+//    }
 
-    public int getIntegerInput(){
+    public static int getIntegerInput(){
+        Scanner scanner = new Scanner(System.in);
+
         while (!scanner.hasNextInt()) {
-            System.out.println("Input has to be integer!");
+            SoutWrapper.getInstance().getMsg(LocalizationKey.INTEGER_INPUT_WARNING);
             scanner.next();
         }
         return scanner.nextInt();

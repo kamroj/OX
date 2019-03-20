@@ -11,10 +11,10 @@ import static org.testng.Assert.*;
  */
 public class InputValidatorTest {
 
-    @Test
-    public void testGetIntegerValidInput() {
-        Scanner scanner = new Scanner("1");
-        InputValidator inputValidator = new InputValidator(scanner);
-        System.out.println(inputValidator.ge);
-    }
+//    @Test
+//    public void testGetIntegerValidInput() {
+//        Scanner scanner = new Scanner("1");
+//        InputValidator inputValidator = new InputValidator(scanner);
+//        System.out.println(inputValidator.ge);
+//    }
 }

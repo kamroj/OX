@@ -3,6 +3,8 @@ package kamil.rojek.ox.menu;
 import kamil.rojek.ox.customExceptions.InvalidSettingException;
 import kamil.rojek.ox.game.IGame;
 import kamil.rojek.ox.inputOutput.InputValidator;
+import kamil.rojek.ox.inputOutput.Language;
+import kamil.rojek.ox.inputOutput.LocalizationKey;
 import kamil.rojek.ox.inputOutput.SoutWrapper;
 
 /**
@@ -43,16 +45,16 @@ public class MenuDisplay {
     private int menuSelector() {
         int selection;
 
-        SoutWrapper.printMsg("Select one from this options.");
+        SoutWrapper.getInstance().getMsg(LocalizationKey.MENU_INFO);
         SoutWrapper.printMsg("-------------------------");
-        SoutWrapper.printMsg("1 - Start game");
-        SoutWrapper.printMsg("2 - Options");
-        SoutWrapper.printMsg("3 - Quit");
+        SoutWrapper.getInstance().getMsg(LocalizationKey.START_GAME);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.OPTIONS);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.QUIT);
         SoutWrapper.printMsg("-------------------------");
 
         do {
             selection = InputValidator.getIntegerInput();
-        } while (selection <= 0 || selection >= 4);
+        } while (selection < 1 || selection > 3);
 
         return selection;
     }
@@ -70,24 +72,46 @@ public class MenuDisplay {
                 changeNumberOfRounds();
                 break;
             case 4:
+                initializeChangingLanguage();
+                break;
+            case 5:
                 initiliazeMenu();
+        }
+    }
+
+    private void initializeChangingLanguage() {
+        SoutWrapper soutWrapper = SoutWrapper.getInstance();
+
+        switch (changeLanguage()){
+            case 1:
+                soutWrapper.changeLanguageBundle(Language.POLISH);
+                initiliazeSettings();
+                break;
+            case 2:
+                soutWrapper.changeLanguageBundle(Language.ENGLISH);
+                initiliazeSettings();
+                break;
+            case 3:
+                initiliazeSettings();
+                break;
         }
     }
 
     private int optionsSelector() {
         int selection;
 
-        SoutWrapper.printMsg("Select one from this options.");
+        SoutWrapper.getInstance().getMsg(LocalizationKey.MENU_INFO);
         SoutWrapper.printMsg("-------------------------");
-        SoutWrapper.printMsg("1 - Change board size");
-        SoutWrapper.printMsg("2 - Change winning limit");
-        SoutWrapper.printMsg("3 - Change number of rounds");
-        SoutWrapper.printMsg("4 - Go to main menu");
+        SoutWrapper.getInstance().getMsg(LocalizationKey.CHANGE_BOARD_SIZE);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.CHANGE_WINNING_LIMIT);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.CHANGE_NUMBER_ROUNDS);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.CHANGE_LANGUAGE);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.GO_MAIN_MENU);
         SoutWrapper.printMsg("-------------------------");
 
         do {
             selection = InputValidator.getIntegerInput();
-        } while (selection <= 0 || selection >= 5);
+        } while (selection < 1 || selection > 5);
 
         return selection;
     }
@@ -96,9 +120,9 @@ public class MenuDisplay {
         boolean success = false;
         while (!success) {
             try {
-                SoutWrapper.printMsg("Set row size: ");
+                SoutWrapper.getInstance().getMsg(LocalizationKey.SET_ROW_SIZE_INFO);
                 settings.setRowSize(InputValidator.getIntegerInput());
-                SoutWrapper.printMsg("Set column size: ");
+                SoutWrapper.getInstance().getMsg(LocalizationKey.SET_COLUMN_SIZE_INFO);
                 settings.setColumnSize(InputValidator.getIntegerInput());
                 success = true;
             } catch (InvalidSettingException e) {
@@ -113,7 +137,7 @@ public class MenuDisplay {
         boolean success = false;
         while (!success) {
             try {
-                SoutWrapper.printMsg("Set winning limit: ");
+                SoutWrapper.getInstance().getMsg(LocalizationKey.SET_WINNING_LIMIT_INFO);
                 settings.setWinningLimit(InputValidator.getIntegerInput());
                 success = true;
             } catch (InvalidSettingException e) {
@@ -128,7 +152,7 @@ public class MenuDisplay {
         boolean success = false;
         while (!success) {
             try {
-                SoutWrapper.printMsg("Set number of rounds: ");
+                SoutWrapper.getInstance().getMsg(LocalizationKey.SET_NUMBER_OF_ROUNDS_INFO);
                 settings.setNumberOfRounds(InputValidator.getIntegerInput());
                 success = true;
             } catch (InvalidSettingException e) {
@@ -142,15 +166,31 @@ public class MenuDisplay {
     private int endingSelector() {
         int selection;
 
-        SoutWrapper.printMsg("game has ended.");
+        SoutWrapper.getInstance().getMsg(LocalizationKey.GAME_ENDED_INFO);
         SoutWrapper.printMsg("-------------------------");
-        SoutWrapper.printMsg("1 - Back to main menu");
-        SoutWrapper.printMsg("2 - Quit");
+        SoutWrapper.getInstance().getMsg(LocalizationKey.GO_MAIN_MENU);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.QUIT);
         SoutWrapper.printMsg("-------------------------");
 
         do {
             selection = InputValidator.getIntegerInput();
-        } while (selection <= 0 || selection >= 2);
+        } while (selection < 1 || selection > 2);
+
+        return selection;
+    }
+
+    private int changeLanguage(){
+        int selection;
+
+        SoutWrapper.printMsg("-------------------------");
+        SoutWrapper.getInstance().getMsg(LocalizationKey.POLISH_LANGUAGE);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.ENGLISH_LANGUAGE);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.GO_SETTINGS);
+        SoutWrapper.printMsg("-------------------------");
+
+        do {
+            selection = InputValidator.getIntegerInput();
+        } while (selection < 1 || selection > 3);
 
         return selection;
     }

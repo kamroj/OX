@@ -1,6 +1,7 @@
 package kamil.rojek.ox.game;
 
 import kamil.rojek.ox.customExceptions.PlayerSeedTypeException;
+import kamil.rojek.ox.inputOutput.LocalizationKey;
 import kamil.rojek.ox.inputOutput.SoutWrapper;
 
 class Player {
@@ -22,7 +23,7 @@ class Player {
     }
 
     void addPoint() {
-        SoutWrapper.printMsg("Adding points to -> " + this.toString());
+        SoutWrapper.getInstance().getMsg(LocalizationKey.ADDIDNG_POINT, this.toString());
         score++;
     }
 

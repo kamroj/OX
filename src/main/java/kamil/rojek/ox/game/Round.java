@@ -1,6 +1,7 @@
 package kamil.rojek.ox.game;
 
 import kamil.rojek.ox.inputOutput.InputValidator;
+import kamil.rojek.ox.inputOutput.LocalizationKey;
 import kamil.rojek.ox.inputOutput.SoutWrapper;
 
 //to test
@@ -15,7 +16,7 @@ class Round {
     }
 
     void startRound (Board board){
-        SoutWrapper.printMsg("Turn move: " + player.toString());
+        SoutWrapper.getInstance().getMsg(LocalizationKey.TURN_MOVE, player.toString());
         this.board = board;
         takeTurn();
     }
@@ -36,9 +37,9 @@ class Round {
         GameValidator gameValidator = new GameValidator(board);
 
         do {
-            SoutWrapper.printMsg("Type number of row: ", true);
+            SoutWrapper.getInstance().getMsg(LocalizationKey.MOVE_PLAYER_ROW_TYPE, true);
             rowNumber = InputValidator.getIntegerInput();
-            SoutWrapper.printMsg("Type number of column: ", true);
+            SoutWrapper.getInstance().getMsg(LocalizationKey.MOVE_PLAYER_COLUMN_TYPE, true);
             columnNumber = InputValidator.getIntegerInput();
 
         } while (!gameValidator.validateSeed(rowNumber, columnNumber));

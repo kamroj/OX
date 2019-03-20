@@ -1,5 +1,6 @@
 package kamil.rojek.ox.game;
 
+import kamil.rojek.ox.inputOutput.LocalizationKey;
 import kamil.rojek.ox.inputOutput.SoutWrapper;
 
 /**
@@ -13,12 +14,12 @@ class ScoreBoard {
     }
 
     void printScoreBoard() {
-        SoutWrapper.printMsg("\n********** SCOREBOARD **********\n");
+        SoutWrapper.getInstance().getMsg(LocalizationKey.SCORE_BOARD_START);
 
         for (Player player : players.getAllPlayers()){
             SoutWrapper.printMsg(player.toString() + ": " + player.getScore());
         }
 
-        System.out.println("\n******** END SCOREBOARD ********\n");
+        SoutWrapper.getInstance().getMsg(LocalizationKey.SCORE_BOARD_END);
     }
 }

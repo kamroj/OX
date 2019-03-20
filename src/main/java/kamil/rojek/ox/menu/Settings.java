@@ -1,6 +1,8 @@
 package kamil.rojek.ox.menu;
 
 import kamil.rojek.ox.customExceptions.InvalidSettingException;
+import kamil.rojek.ox.inputOutput.LocalizationKey;
+import kamil.rojek.ox.inputOutput.SoutWrapper;
 
 /**
  * @author Kamil Rojek
@@ -13,14 +15,16 @@ public class Settings {
 
     void setRowSize(int rowSize) throws InvalidSettingException {
         if (rowSize < 3 || rowSize > 30) {
-            throw new InvalidSettingException("Minimum board size 3x3, maximum 30x30!");
+            throw new InvalidSettingException(
+                    SoutWrapper.getInstance().getMsgToString(LocalizationKey.BOARD_SIZE_WARNING));
         }
         this.rowSize = rowSize;
     }
 
     void setColumnSize(int columnSize) throws InvalidSettingException {
         if (columnSize < 3 || columnSize > 30) {
-            throw new InvalidSettingException("Minimum board size 3x3, maximum 30x30!");
+            throw new InvalidSettingException(
+                    SoutWrapper.getInstance().getMsgToString(LocalizationKey.BOARD_SIZE_WARNING));
         }
         this.columnSize = columnSize;
     }
@@ -28,14 +32,16 @@ public class Settings {
     void setWinningLimit(int winningLimit) throws InvalidSettingException {
         int maximumLenght = rowSize > columnSize ? rowSize : columnSize;
         if (winningLimit < 3 || winningLimit > maximumLenght){
-            throw new InvalidSettingException("Minimum winning limit should be 3 maximum " + maximumLenght);
+            throw new InvalidSettingException(
+                    SoutWrapper.getInstance().getMsgToString(LocalizationKey.WINNING_LIMIT_WARNING) + maximumLenght);
         }
         this.winningLimit = winningLimit;
     }
 
     void setNumberOfRounds(int numberOfRounds) throws InvalidSettingException {
         if (numberOfRounds < 1 || numberOfRounds > 10) {
-            throw new InvalidSettingException("Number of rounds should be from 1 to 10!");
+            throw new InvalidSettingException(
+                    SoutWrapper.getInstance().getMsgToString(LocalizationKey.NUMBER_OF_ROUNDS_WARNING));
         }
         this.numberOfRounds = numberOfRounds;
     }
@@ -55,4 +61,5 @@ public class Settings {
     public int getNumberOfRounds(){
         return numberOfRounds;
     }
+
 }

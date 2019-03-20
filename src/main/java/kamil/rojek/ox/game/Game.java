@@ -1,6 +1,7 @@
 package kamil.rojek.ox.game;
 
 import kamil.rojek.ox.customExceptions.BoardCreatorException;
+import kamil.rojek.ox.inputOutput.LocalizationKey;
 import kamil.rojek.ox.inputOutput.SoutWrapper;
 import kamil.rojek.ox.menu.MenuDisplay;
 import kamil.rojek.ox.menu.Settings;
@@ -47,8 +48,7 @@ public class Game implements IGame {
         boardDisplay.updateView(board);
 
         if (gameValidator.isDraw()) {
-            SoutWrapper.printMsg("Round has ended with Draw!");
-
+            SoutWrapper.getInstance().getMsg(LocalizationKey.ROUND_ENDED_DRAW);
             for (Player player : players.getAllPlayers()) {
                 player.addPoint();
             }
@@ -56,7 +56,7 @@ public class Game implements IGame {
         } else {
             Player winner = round.getLastPlayerOfRound();
             winner.addPoint();
-            SoutWrapper.printMsg("The winner of this round is: " + winner.toString());
+            SoutWrapper.getInstance().getMsg(LocalizationKey.ROUND_ENDED_WINNER, winner.toString());
         }
     }
 
