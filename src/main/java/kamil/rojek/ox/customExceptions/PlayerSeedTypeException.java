@@ -1,4 +1,4 @@
-package kamil.rojek.ox.CustomExceptions;
+package kamil.rojek.ox.customExceptions;
 
 public class PlayerSeedTypeException extends Exception{
 

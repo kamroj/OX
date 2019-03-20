@@ -1,4 +1,4 @@
-package kamil.rojek.ox.InputOutput;
+package kamil.rojek.ox.inputOutput;
 
 import java.io.PrintStream;
 
@@ -13,6 +13,18 @@ public class SoutWrapper {
         }
 
         System.out.println(msg);
+    }
+
+    public static void printMsg(String msg, boolean oneLine) {
+        if (msg == null) {
+            throw new IllegalArgumentException("Invalid input argument");
+        }
+
+        if (oneLine) {
+            System.out.print(msg);
+        } else {
+            System.out.println(msg);
+        }
     }
 
     public static void printMsg(String msg, PrintStream stream) {

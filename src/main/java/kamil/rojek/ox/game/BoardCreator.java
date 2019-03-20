@@ -1,6 +1,6 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
-import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
+import kamil.rojek.ox.customExceptions.BoardCreatorException;
 
 /**
  * @author Kamil Rojek

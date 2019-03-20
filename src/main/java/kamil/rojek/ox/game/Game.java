@@ -1,7 +1,8 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
-import kamil.rojek.ox.CustomExceptions.BoardCreatorException;
-import kamil.rojek.ox.InputOutput.SoutWrapper;
+import kamil.rojek.ox.customExceptions.BoardCreatorException;
+import kamil.rojek.ox.inputOutput.SoutWrapper;
+import kamil.rojek.ox.menu.MenuDisplay;
 import kamil.rojek.ox.menu.Settings;
 
 public class Game implements IGame {
@@ -9,6 +10,8 @@ public class Game implements IGame {
     private Player player;
     private Board board;
     private Settings settings;
+    private ScoreBoard scoreBoard;
+    private int roundCounter = 0;
 
     public Game(IPlayers players, Settings settings) {
         this.players = players;
@@ -16,12 +19,20 @@ public class Game implements IGame {
     }
 
     public void startGame(){
-        initialize();
-        roundFlow();
+        scoreBoard = new ScoreBoard(players);
+
+        while (roundCounter != settings.getNumberOfRounds()) {
+            initialize();
+            roundFlow();
+            scoreBoard.printScoreBoard();
+            roundCounter++;
+        }
+
+        gameEnded();
     }
 
     private void roundFlow() {
-        GameValidator gameValidator = new GameValidator(board);
+        GameValidator gameValidator = new GameValidator(board, settings.getWinningLimit());
         BoardDisplay boardDisplay = new BoardDisplay();
         Round round;
 
@@ -37,8 +48,14 @@ public class Game implements IGame {
 
         if (gameValidator.isDraw()) {
             SoutWrapper.printMsg("Round has ended with Draw!");
+
+            for (Player player : players.getAllPlayers()) {
+                player.addPoint();
+            }
+
         } else {
             Player winner = round.getLastPlayerOfRound();
+            winner.addPoint();
             SoutWrapper.printMsg("The winner of this round is: " + winner.toString());
         }
     }
@@ -54,5 +71,10 @@ public class Game implements IGame {
         }
 
         player = players.getCurrentPlayer();
+    }
+
+    private void gameEnded() {
+        MenuDisplay menuDisplay = new MenuDisplay(this, settings);
+        menuDisplay.endingQuery();
     }
 }

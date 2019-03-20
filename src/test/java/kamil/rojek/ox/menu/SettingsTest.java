@@ -1,12 +1,10 @@
 package kamil.rojek.ox.menu;
 
-import kamil.rojek.ox.CustomExceptions.InvalidSettingException;
+import kamil.rojek.ox.customExceptions.InvalidSettingException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
 
 /**
  * @author Kamil Rojek

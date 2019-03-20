@@ -1,6 +1,7 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
-import kamil.rojek.ox.CustomExceptions.PlayerSeedTypeException;
+import kamil.rojek.ox.customExceptions.PlayerSeedTypeException;
+import kamil.rojek.ox.inputOutput.SoutWrapper;
 
 class Player {
     private String name;
@@ -21,6 +22,7 @@ class Player {
     }
 
     void addPoint() {
+        SoutWrapper.printMsg("Adding points to -> " + this.toString());
         score++;
     }
 
@@ -29,7 +31,7 @@ class Player {
     }
 
     public String toString(){
-        return "Player name: " + name + " SeedType: " + type;
+        return name + " (" + type.getValue() +")";
     }
 
     public boolean equals(Object obj){

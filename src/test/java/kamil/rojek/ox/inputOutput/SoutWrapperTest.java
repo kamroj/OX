@@ -1,4 +1,4 @@
-package kamil.rojek.ox.InputOutput;
+package kamil.rojek.ox.inputOutput;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;

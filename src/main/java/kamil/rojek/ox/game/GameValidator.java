@@ -1,13 +1,18 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
 class GameValidator {
     private Board board;
     private SeedType type;
     private int fieldsWithSameTypeCouter = 0;
-    private final int WINNING_SCORE = 3;
+    private int winningLimit = 3;
 
     GameValidator(Board board) {
         this.board = board;
+    }
+
+    GameValidator(Board board, int winningLimit) {
+        this.board = board;
+        this.winningLimit = winningLimit;
     }
 
     boolean validateSeed(int rowNumber, int columnNumber) {
@@ -77,7 +82,7 @@ class GameValidator {
     private boolean checkHorizontalRightDirection(int rowNumber, int columnNumber) {
         int columnToCheck = columnNumber;
 
-        while (fieldsWithSameTypeCouter != WINNING_SCORE) {
+        while (fieldsWithSameTypeCouter != winningLimit) {
             if (board.fields.length - 1 < columnToCheck)
                 return false;
 
@@ -92,7 +97,7 @@ class GameValidator {
     private boolean checkHorizontalLeftDirection(int rowNumber, int columnNumber) {
         int columnToCheck = columnNumber;
 
-        while (fieldsWithSameTypeCouter != WINNING_SCORE) {
+        while (fieldsWithSameTypeCouter != winningLimit) {
             columnToCheck--;
 
             if (columnToCheck < 0) {
@@ -109,7 +114,7 @@ class GameValidator {
     private boolean checkHorizontalDownDirection(int rowNumber, int columnNumber) {
         int rowToCheck = rowNumber;
 
-        while (fieldsWithSameTypeCouter != WINNING_SCORE) {
+        while (fieldsWithSameTypeCouter != winningLimit) {
             if (board.fields.length - 1 < rowToCheck)
                 return false;
 
@@ -124,7 +129,7 @@ class GameValidator {
     private boolean checkHorizontalUpDirection(int rowNumber, int columnNumber) {
         int rowToCheck = rowNumber;
 
-        while (fieldsWithSameTypeCouter != WINNING_SCORE) {
+        while (fieldsWithSameTypeCouter != winningLimit) {
             rowToCheck--;
 
             if (rowToCheck < 0) {
@@ -142,7 +147,7 @@ class GameValidator {
         int rowToCheck = rowNumber;
         int columnToCheck = columnNumber;
 
-        while (fieldsWithSameTypeCouter != WINNING_SCORE) {
+        while (fieldsWithSameTypeCouter != winningLimit) {
             if (rowToCheck >= board.fields.length || columnToCheck >= board.fields.length)
                 return false;
 
@@ -161,7 +166,7 @@ class GameValidator {
         int rowToCheck = rowNumber;
         int columnToCheck = columnNumber;
 
-        while (fieldsWithSameTypeCouter != WINNING_SCORE) {
+        while (fieldsWithSameTypeCouter != winningLimit) {
 
             rowToCheck--;
             columnToCheck--;
@@ -183,7 +188,7 @@ class GameValidator {
         int rowToCheck = rowNumber;
         int columnToCheck = columnNumber;
 
-        while (fieldsWithSameTypeCouter != WINNING_SCORE) {
+        while (fieldsWithSameTypeCouter != winningLimit) {
             rowToCheck--;
             columnToCheck++;
 
@@ -203,7 +208,7 @@ class GameValidator {
         int rowToCheck = rowNumber;
         int columnToCheck = columnNumber;
 
-        while (fieldsWithSameTypeCouter != WINNING_SCORE) {
+        while (fieldsWithSameTypeCouter != winningLimit) {
 
             rowToCheck++;
             columnToCheck--;

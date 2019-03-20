@@ -1,4 +1,4 @@
-package kamil.rojek.ox.InputOutput;
+package kamil.rojek.ox.inputOutput;
 
 import java.util.Scanner;
 

@@ -1,4 +1,6 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
+
+import java.util.List;
 
 /**
  * @author Kamil Rojek
@@ -6,4 +8,5 @@ package kamil.rojek.ox.Game;
 public interface IPlayers {
     Player getCurrentPlayer();
     Player getNextPlayer();
+    List<Player> getAllPlayers();
 }

@@ -1,6 +1,6 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
-import kamil.rojek.ox.CustomExceptions.PlayerSeedTypeException;
+import kamil.rojek.ox.customExceptions.PlayerSeedTypeException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -29,10 +29,10 @@ public class PlayerTest {
     @DataProvider
     public static Object[][] dataPlayerToString() throws PlayerSeedTypeException {
         return new Object[][]{
-            {new Player("Kamil", SeedType.Cross), "Player name: Kamil SeedType: Cross"},
-            {new Player("a", SeedType.Cross), "Player name: a SeedType: Cross"},
-            {new Player("Monia moja żona", SeedType.Nought), "Player name: Monia moja żona SeedType: Nought"},
-            {new Player("Kamil jej mąż", SeedType.Cross), "Player name: Kamil jej mąż SeedType: Cross"},
+            {new Player("Kamil", SeedType.Cross), "Kamil (X)"},
+            {new Player("a", SeedType.Cross), "a (X)"},
+            {new Player("Monia moja żona", SeedType.Nought), "Monia moja żona (O)"},
+            {new Player("Kamil jej mąż", SeedType.Cross), "Kamil jej mąż (X)"},
         };
     }
 

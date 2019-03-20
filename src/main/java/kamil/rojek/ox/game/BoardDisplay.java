@@ -1,4 +1,4 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
 //przetestowac
 public class BoardDisplay {

@@ -1,4 +1,4 @@
-package kamil.rojek.ox.CustomExceptions;
+package kamil.rojek.ox.customExceptions;
 
 /**
  * @author Kamil Rojek

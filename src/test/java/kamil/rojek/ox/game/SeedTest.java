@@ -1,4 +1,4 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;

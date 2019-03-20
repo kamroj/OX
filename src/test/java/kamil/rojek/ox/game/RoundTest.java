@@ -1,6 +1,6 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
-import kamil.rojek.ox.CustomExceptions.PlayerSeedTypeException;
+import kamil.rojek.ox.customExceptions.PlayerSeedTypeException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

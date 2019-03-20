@@ -5,3 +5,4 @@ Default Suite
 Total tests run: 270, Failures: 0, Skips: 0
 ===============================================
 
+Class transformation time: 0.048373588s for 1029 classes or 4.701028960155491E-5s per class

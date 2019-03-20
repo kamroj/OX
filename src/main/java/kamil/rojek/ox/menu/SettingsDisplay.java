@@ -1,8 +1,8 @@
 //package kamil.rojek.ox.menu;
 //
-//import kamil.rojek.ox.CustomExceptions.InvalidSettingException;
-//import kamil.rojek.ox.InputOutput.InputValidator;
-//import kamil.rojek.ox.InputOutput.SoutWrapper;
+//import kamil.rojek.ox.customExceptions.InvalidSettingException;
+//import kamil.rojek.ox.inputOutput.InputValidator;
+//import kamil.rojek.ox.inputOutput.SoutWrapper;
 //
 ///**
 // * @author Kamil Rojek

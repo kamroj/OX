@@ -1,7 +1,7 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
-import kamil.rojek.ox.InputOutput.InputValidator;
-import kamil.rojek.ox.InputOutput.SoutWrapper;
+import kamil.rojek.ox.inputOutput.InputValidator;
+import kamil.rojek.ox.inputOutput.SoutWrapper;
 
 //to test
 class Round {
@@ -36,9 +36,9 @@ class Round {
         GameValidator gameValidator = new GameValidator(board);
 
         do {
-            SoutWrapper.printMsg("Type number of row: ");
+            SoutWrapper.printMsg("Type number of row: ", true);
             rowNumber = InputValidator.getIntegerInput();
-            SoutWrapper.printMsg("Type number of column: ");
+            SoutWrapper.printMsg("Type number of column: ", true);
             columnNumber = InputValidator.getIntegerInput();
 
         } while (!gameValidator.validateSeed(rowNumber, columnNumber));

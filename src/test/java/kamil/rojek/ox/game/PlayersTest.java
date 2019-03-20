@@ -1,6 +1,6 @@
-package kamil.rojek.ox.Game;
+package kamil.rojek.ox.game;
 
-import kamil.rojek.ox.CustomExceptions.PlayerSeedTypeException;
+import kamil.rojek.ox.customExceptions.PlayerSeedTypeException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -22,7 +22,7 @@ public class PlayersTest {
 
     @Test
     public void testNumberOfPlayersShouldBeEqualTwo(){
-        Assert.assertTrue(players.getAllPlayers() == 2);
+        Assert.assertTrue(players.getAllPlayers().size() == 2);
     }
 
     @Test
