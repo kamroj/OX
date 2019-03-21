@@ -19,7 +19,10 @@ public class BoardDisplay {
         System.out.print("\n   ");
 
         for (int i = 0; i < board.fields[0].length; i++) {
-            System.out.print(" " + columnCounter + "  ");
+            if (i < 10)
+                System.out.print("  " + columnCounter + " ");
+            else
+                System.out.print("  " + columnCounter);
             columnCounter++;
         }
 
@@ -27,7 +30,10 @@ public class BoardDisplay {
         lineGenerator();
 
         for (int i = 0; i < board.fields.length; i++) {
-            System.out.print(rowCounter + " | ");
+            if(i < 10)
+                System.out.print(rowCounter + "  | ");
+            else
+                System.out.print(rowCounter + " | ");
             rowCounter++;
 
             for (int j = 0; j < board.fields[i].length; j++) {
@@ -40,7 +46,7 @@ public class BoardDisplay {
 
     private void lineGenerator() {
         StringBuilder sb = new StringBuilder();
-        sb.append("  ");
+        sb.append("   ");
 
         for (int i = 0; i <= lineLongCounter(); i++) {
             sb.append("-");
