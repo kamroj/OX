@@ -39,6 +39,6 @@ public class SeedTest {
     @Test(dataProvider = "incorrectDataForSeedTypes")
     public void testSeedIncorectTypes(SeedType type, SeedType expectedType){
         Seed seed = new Seed(type);
-        Assert.assertNotEquals(seed.type, expectedType);
+        Assert.assertFalse(seed.type.equals(expectedType));
     }
 }

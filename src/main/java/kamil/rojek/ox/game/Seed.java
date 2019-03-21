@@ -15,7 +15,6 @@ class Seed {
     public boolean equals(Object obj) {
         if (obj == null)
             return false;
-
         Seed seed = (Seed) obj;
         return type.equals(seed.type);
     }

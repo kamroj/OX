@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.*;
+import java.util.ResourceBundle;
 
 
 /**
@@ -60,5 +61,12 @@ public class SoutWrapperTest {
         while ((line = reader.readLine()) != null) {
             Assert.assertEquals(null, line);
         }
+    }
+
+    @Test
+    public void testChangeLanguage(){
+        SoutWrapper soutWrapper = SoutWrapper.getInstance();
+        soutWrapper.changeLanguageBundle(Language.POLISH);
+        Assert.assertNotNull(soutWrapper);
     }
 }

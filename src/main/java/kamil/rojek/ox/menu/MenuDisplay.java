@@ -40,6 +40,7 @@ public class MenuDisplay {
             case 3:
                 SoutWrapper.getInstance().getMsg(LocalizationKey.INFO_ABOUT_GAME);
                 initiliazeMenu();
+                break;
             case 4:
                 SoutWrapper.getInstance().getMsg(LocalizationKey.GOODBYE_MSG);
                 break;

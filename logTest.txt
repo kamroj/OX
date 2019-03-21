@@ -2,6 +2,7 @@ tes1231231 121 22  1t2
 
 ===============================================
 Default Suite
-Total tests run: 31, Failures: 0, Skips: 0
+Total tests run: 295, Failures: 0, Skips: 0
 ===============================================
 
+Class transformation time: 0.059511356s for 1059 classes or 5.619580358829084E-5s per class
