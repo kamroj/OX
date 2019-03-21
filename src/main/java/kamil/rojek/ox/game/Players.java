@@ -6,10 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 
+/**
+ * Container for players
+ * @author Kamil Rojek
+ */
 public class Players implements IPlayers{
     private HashMap<Integer, Player> players;
     private int playerIndex = 1;
 
+    /**
+     * Initialize two players
+     */
     public Players() {
         initializePlayers();
     }
@@ -36,8 +43,8 @@ public class Players implements IPlayers{
     private void initializePlayers() {
         try {
             players = new HashMap();
-            players.put(1, new Player("Kamil", SeedType.Cross));
-            players.put(2, new Player("Monika", SeedType.Nought));
+            players.put(1, new Player("Player 1", SeedType.Cross));
+            players.put(2, new Player("Player 2", SeedType.Nought));
         }
         catch (PlayerSeedTypeException e) {
             e.getMessage();

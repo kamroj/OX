@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class MenuDisplayTest {
     @Test
     public void testMenuDisplayCreation(){
+        //Arrange
         IPlayers players = new Players();
         SoutWrapper.getInstance();
         Settings settings = new Settings();
@@ -25,11 +26,14 @@ public class MenuDisplayTest {
         Assert.assertNotNull(menuDisplay);
 
         MenuDisplay menuDisplay1 = new MenuDisplay(game, settings, scanner);
+
+        //Act && Assert
         Assert.assertNotNull(menuDisplay1);
     }
 
     @Test
     public void testMainMenu() {
+        //Arrange
         IPlayers players = new Players();
         SoutWrapper.getInstance();
         Settings settings = new Settings();
@@ -37,6 +41,8 @@ public class MenuDisplayTest {
         Scanner scanner = new Scanner("2 1 3 3 2 3 3 3 4 1 4 2 4 3 5 3 4");
         Game game = new Game(players, settings, scanner);
         MenuDisplay menuDisplay = new MenuDisplay(game, settings, scanner);
+
+        //Act && Assert
         menuDisplay.initiliazeMenu();
     }
 }

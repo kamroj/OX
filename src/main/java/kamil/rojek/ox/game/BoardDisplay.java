@@ -2,13 +2,20 @@ package kamil.rojek.ox.game;
 
 import kamil.rojek.ox.inputOutput.SoutWrapper;
 
-//przetestowac
-public class BoardDisplay {
+/**
+ * Display changes on board
+ * @author Kamil Rojek
+ */
+class BoardDisplay {
     private Board board;
 
-    public BoardDisplay(){
+    BoardDisplay(){
     }
 
+    /**
+     *
+     * @param board - current board object
+     */
     void updateView(Board board){
         this.board = board;
         updateBoard();

@@ -21,7 +21,10 @@ public class BoardCreatorTest {
 
     @Test(dataProvider = "dataBoardValidParameters")
     public void creatingBoardWithValidParameters(int rowsNumber, int columnsNumber) throws BoardCreatorException {
+        //Arrange
         BoardCreator bc = new BoardCreator();
+
+        //Assert
         Board board = bc.createNewBoard(rowsNumber,columnsNumber);
     }
 
@@ -42,11 +45,15 @@ public class BoardCreatorTest {
 
     @Test(dataProvider = "dataBoardValidParameters")
     public void testIfBoardCreatedByBoardCreatorIsFilledWithNoneSeeds(int rowsNumber, int columnsNumber) throws BoardCreatorException {
+        //Arrange
         BoardCreator boardCreator = new BoardCreator();
         Board board = boardCreator.createNewBoard(rowsNumber, rowsNumber);
 
+        //Act
         for (int i = 0; i < board.fields.length; i++){
             for (int j = 0; j < board.fields[i].length; j++){
+
+                //Assert
                 Assert.assertTrue(board.fields[i][j].type.equals(SeedType.None));
             }
         }

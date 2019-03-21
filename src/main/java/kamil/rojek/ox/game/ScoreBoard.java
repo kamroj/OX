@@ -4,10 +4,11 @@ import kamil.rojek.ox.inputOutput.LocalizationKey;
 import kamil.rojek.ox.inputOutput.SoutWrapper;
 
 /**
+ * Prints score board based on players
  * @author Kamil Rojek
  */
 class ScoreBoard {
-    IPlayers players;
+    private IPlayers players;
 
     ScoreBoard(IPlayers players) {
         this.players = players;

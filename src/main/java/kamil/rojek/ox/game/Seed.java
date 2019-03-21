@@ -1,7 +1,7 @@
 package kamil.rojek.ox.game;
 
 /**
- * field with types that fill fields
+ * field with types that fill board
  *
  * @author Kamil Rojek
  */

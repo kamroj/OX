@@ -3,8 +3,17 @@ package kamil.rojek.ox.inputOutput;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * Wrapper for resource bundle.
+ * @author Kamil Rojek
+ */
 class TextLocalizator {
 
+    /**
+     * create resource bundle based on language
+     * @param language enum language
+     * @return resource bundle
+     */
     static ResourceBundle setBundle(Language language) {
         return createBundle(language);
     }

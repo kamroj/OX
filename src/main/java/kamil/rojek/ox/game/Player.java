@@ -4,11 +4,20 @@ import kamil.rojek.ox.customExceptions.PlayerSeedTypeException;
 import kamil.rojek.ox.inputOutput.LocalizationKey;
 import kamil.rojek.ox.inputOutput.SoutWrapper;
 
+/**
+ * @author Kamil Rojek
+ */
 class Player {
     private String name;
     private SeedType type;
     private int score = 0;
 
+    /**
+     *
+     * @param name takes String as player name
+     * @param type takes SeedType as player type (Cross, Nought)
+     * @throws PlayerSeedTypeException
+     */
     Player(String name, SeedType type) throws PlayerSeedTypeException {
         if (type == null || type.equals(SeedType.None)){
             throw new PlayerSeedTypeException("Player seed type cannot be null or NONE!");

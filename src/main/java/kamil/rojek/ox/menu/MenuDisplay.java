@@ -10,6 +10,7 @@ import kamil.rojek.ox.inputOutput.SoutWrapper;
 import java.util.Scanner;
 
 /**
+ * Creating main menu display and logic
  * @author Kamil Rojek
  */
 public class MenuDisplay {
@@ -17,18 +18,27 @@ public class MenuDisplay {
     private Settings settings;
     private InputValidator inputValidator;
 
-    public MenuDisplay(IGame game, Settings settings) {
+    MenuDisplay(IGame game, Settings settings) {
         this.game = game;
         this.settings = settings;
         inputValidator = new InputValidator(new Scanner(System.in));
     }
 
+    /**
+     *
+     * @param game logic of game
+     * @param settings
+     * @param scanner
+     */
     public MenuDisplay(IGame game, Settings settings, Scanner scanner) {
         this.game = game;
         this.settings = settings;
         inputValidator = new InputValidator(scanner);
     }
 
+    /**
+     * Initialize main menu with cases: start game, settings, credits, exit
+     */
     public void initiliazeMenu() {
         switch (menuSelector()){
             case 1:
@@ -47,6 +57,9 @@ public class MenuDisplay {
         }
     }
 
+    /**
+     * Initialize end query with cases: main menu, exit
+     */
     public void endingQuery() {
         switch (endingSelector()){
             case 1:

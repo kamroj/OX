@@ -6,7 +6,10 @@ import kamil.rojek.ox.inputOutput.SoutWrapper;
 
 import java.util.Scanner;
 
-//to test
+/**
+ * Contains main logic of round flow
+ * @author Kamil Rojek
+ */
 class Round {
     private Player player;
     private Board board;
@@ -14,11 +17,20 @@ class Round {
     private int columnNumber;
     private int rowNumber;
 
+    /**
+     * Default constructor that initialize new Input validator with scanner System.in
+     * @param player
+     */
     Round(Player player) {
         this.player = player;
         inputValidator = new InputValidator(new Scanner(System.in));
     }
 
+    /**
+     * Constructor that takes player as first parameter, as second Scanner Object
+     * @param player
+     * @param scanner
+     */
     Round(Player player, Scanner scanner) {
         this.player = player;
         inputValidator = new InputValidator(scanner);
