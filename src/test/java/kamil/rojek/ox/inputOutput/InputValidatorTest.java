@@ -15,6 +15,7 @@ public class InputValidatorTest {
 
     @Test
     public void testInputValidatorCreate(){
+        //Assert
         assertNotNull(new InputValidator(new Scanner(System.in)));
     }
 
@@ -28,8 +29,11 @@ public class InputValidatorTest {
 
     @Test(dataProvider = "dataValidInputs")
     public void testGetIntegerValidInput(String input, int result) {
+        //Arrange
         Scanner scanner = new Scanner(input);
         InputValidator inputValidator = new InputValidator(scanner);
+
+        //Act && Assert
         Assert.assertEquals(inputValidator.getIntegerInput(), result);
     }
 }

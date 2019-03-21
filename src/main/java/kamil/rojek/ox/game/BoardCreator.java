@@ -3,6 +3,7 @@ package kamil.rojek.ox.game;
 import kamil.rojek.ox.customExceptions.BoardCreatorException;
 
 /**
+ * Creating board filled with NONE seeds
  * @author Kamil Rojek
  */
 class BoardCreator {

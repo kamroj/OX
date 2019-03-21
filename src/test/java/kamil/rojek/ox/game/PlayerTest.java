@@ -9,7 +9,11 @@ public class PlayerTest {
 
     @Test
     public void testCreatingPlayer() throws PlayerSeedTypeException {
+        //Arrange
         Player player = new Player("Kamil", SeedType.Cross);
+
+        //Assert
+        Assert.assertNotNull(player);
     }
 
     @DataProvider
@@ -23,6 +27,7 @@ public class PlayerTest {
 
     @Test(dataProvider = "dataPlayerSeedTypes")
     public void testSeedTypesOfPlayer(Player player, SeedType expectedSeedType, boolean result){
+        //Assert
         Assert.assertEquals(player.getSeedType().equals(expectedSeedType), result);
     }
 
@@ -38,7 +43,8 @@ public class PlayerTest {
 
     @Test(dataProvider = "dataPlayerToString")
     public void testPlayerToString(Player player, String playerToStringResult){
-        Assert.assertTrue(player.toString().equals(playerToStringResult));
+        //Assert
+        Assert.assertEquals(playerToStringResult, player.toString());
     }
 
     @DataProvider
@@ -51,29 +57,28 @@ public class PlayerTest {
 
     @Test(dataProvider = "dataAddingScoresToPlayer")
     public void testAddingPointsToPlayer(int addScoreCounter, int scoreResult) throws PlayerSeedTypeException {
+        //Arrange
         Player player = new Player("Kamil", SeedType.Cross);
 
+        //Act
         for (int i = 0; i < addScoreCounter; i++) {
             player.addPoint();
         }
 
+        //Assert
         Assert.assertTrue(player.getScore() == scoreResult);
     }
 
     @Test(expectedExceptions = PlayerSeedTypeException.class)
     public void testNoneSeedTypeCannotBeInitiliazedAsPlayerSeed() throws PlayerSeedTypeException {
         Player player = new Player("Kamil", SeedType.None);
+        //Arrange && Act
+        new Player("Kamil", SeedType.None);
     }
 
     @Test(expectedExceptions = PlayerSeedTypeException.class)
     public void testNullSeedTypeCannotBeInitiliazedAsPlayerSeed() throws PlayerSeedTypeException {
-        Player player = new Player("Kamil", null);
+        //Arrange && Act
+        new Player("Kamil", null);
     }
-
-//    @Test
-//    public void testPlayerTakeTurn() throws PlayerSeedTypeException, BoardCreatorException {
-//        Player player = new Player("Kamil", SeedType.Cross);
-//        Board board = new BoardCreator().createNewBoard(3,3);
-//
-//    }
 }

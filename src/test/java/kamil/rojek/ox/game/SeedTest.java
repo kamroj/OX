@@ -11,19 +11,28 @@ public class SeedTest {
 
     @Test
     public void testSeedNoneType(){
+        //Arrange
         Seed seed = new Seed(SeedType.None);
+
+        //Assert
         Assert.assertEquals(seed.type, SeedType.None);
     }
 
     @Test
     public void testSeedNoughtType(){
+        //Arrange
         Seed seed = new Seed(SeedType.Nought);
+
+        //Assert
         Assert.assertEquals(seed.type, SeedType.Nought);
     }
 
     @Test
     public void testSeedCrossType(){
+        //Arrange
         Seed seed = new Seed(SeedType.Cross);
+
+        //Assert
         Assert.assertEquals(seed.type, SeedType.Cross);
     }
 
@@ -38,7 +47,10 @@ public class SeedTest {
 
     @Test(dataProvider = "incorrectDataForSeedTypes")
     public void testSeedIncorectTypes(SeedType type, SeedType expectedType){
+        //Arrange
         Seed seed = new Seed(type);
+
+        //Assert
         Assert.assertFalse(seed.type.equals(expectedType));
     }
 }

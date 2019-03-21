@@ -41,13 +41,17 @@ public class BoardTest {
 
     @Test(dataProvider = "dataBoardInvalidParameters", expectedExceptions = IllegalArgumentException.class)
     public void testInitializeBoardWithInvalidParameters(int rowsNumber, int columnsNumber){
+        //Arrange && Assert
         new Board(rowsNumber, columnsNumber);
     }
 
     @Test(dataProvider = "dataBoardValidParameters")
     public void testValidEqualsOfBoards(int columnsNumber, int rowsNumber){
+        //Arrange
         Board board = new Board(rowsNumber,columnsNumber);
         Board board1 = new Board(rowsNumber,columnsNumber);
+
+        //Assert
         Assert.assertTrue(board.equals(board1));
     }
 
@@ -64,9 +68,12 @@ public class BoardTest {
 
     @Test(dataProvider = "dataBoardsIncorrectParametersForBoardsEquality")
     public void testInvalidEqualityOfBoards(int rows1, int columns1, int rows2, int columns2){
+        //Arrange
         Board board = new Board(rows1,columns1);
         Board board1 = new Board(rows2, columns2);
-        Assert.assertFalse(board.equals(board1));
+
+        //Assert
+        Assert.assertNotEquals(board1, board);
     }
 
     @DataProvider
@@ -83,9 +90,13 @@ public class BoardTest {
 
     @Test(dataProvider = "dataMarkFeelds")
     public void testMarkFeeld(int rowNumbers, int columnNumbers, SeedType fill, SeedType expected, boolean result) throws BoardCreatorException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(10,10);
+
+        //Act
         board.markField(rowNumbers,columnNumbers, fill);
 
+        //Assert
         Assert.assertEquals(board.fields[rowNumbers][columnNumbers].type.equals(expected), result);
     }
 }

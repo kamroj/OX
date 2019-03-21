@@ -5,7 +5,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.*;
-import java.util.ResourceBundle;
 
 
 /**
@@ -41,32 +40,42 @@ public class SoutWrapperTest {
 
     @Test(dataProvider = "dataForInput")
     public void testValidInputPrinting(String input) throws IOException {
+        //Arrange
         PrintStream ps = new PrintStream(new FileOutputStream("testLog.txt"));
         SoutWrapper.printMsg(input, ps);
         BufferedReader reader = new BufferedReader(new FileReader("testLog.txt"));
 
+        //Act
         String line;
         while ((line = reader.readLine()) != null) {
+
+            //Assert
             Assert.assertEquals(input, line);
         }
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testInvalidInputPrinting() throws IOException {
+        //Arrange
         PrintStream ps = new PrintStream(new FileOutputStream("testLog.txt"));
         SoutWrapper.printMsg(null, ps);
         BufferedReader reader = new BufferedReader(new FileReader("testLog.txt"));
 
+        //Act
         String line;
         while ((line = reader.readLine()) != null) {
+            //Assert
             Assert.assertEquals(null, line);
         }
     }
 
     @Test
     public void testChangeLanguage(){
+        //Arrange
         SoutWrapper soutWrapper = SoutWrapper.getInstance();
         soutWrapper.changeLanguageBundle(Language.POLISH);
+
+        //Assert
         Assert.assertNotNull(soutWrapper);
     }
 }

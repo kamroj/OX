@@ -15,6 +15,7 @@ public class SettingsTest {
 
     @BeforeMethod
     private void setUp(){
+        //Arrange
         settings = new Settings();
     }
 
@@ -29,7 +30,10 @@ public class SettingsTest {
     }
     @Test(dataProvider = "dataSettingRow")
     public void testSetRowSize(int rowSize, int result) throws InvalidSettingException {
+        //Act
         settings.setRowSize(rowSize);
+
+        //Assert
         Assert.assertEquals(settings.getRowSize(), result);
     }
 
@@ -45,7 +49,10 @@ public class SettingsTest {
 
     @Test(dataProvider = "dataSettingColumn")
     public void testSetColumnSize(int columnSize, int result) throws InvalidSettingException {
+        //Act
         settings.setColumnSize(columnSize);
+
+        //Assert
         Assert.assertEquals(settings.getColumnSize(), result);
     }
 
@@ -60,6 +67,7 @@ public class SettingsTest {
     }
     @Test(dataProvider = "dataInvalidSettingRow", expectedExceptions = InvalidSettingException.class)
     public void testInvalidSetRowSize(int rowSize) throws InvalidSettingException {
+        //Act && Assert
         settings.setRowSize(rowSize);
     }
 
@@ -74,6 +82,7 @@ public class SettingsTest {
 
     @Test(dataProvider = "dataInvalidSettingColumn", expectedExceptions = InvalidSettingException.class)
     public void testInvalidSetColumnSize(int columnSize) throws InvalidSettingException {
+        //Act && Assert
         settings.setColumnSize(columnSize);
     }
 
@@ -90,9 +99,12 @@ public class SettingsTest {
 
     @Test(dataProvider = "dataValidWinningLimit")
     public void testSetWinningLimit(int rowSize, int columnSize, int winningLimit) throws InvalidSettingException {
+        //Act
         settings.setRowSize(rowSize);
         settings.setColumnSize(columnSize);
         settings.setWinningLimit(winningLimit);
+
+        //Assert
         Assert.assertEquals(settings.getWinningLimit(), winningLimit);
     }
 
@@ -109,9 +121,12 @@ public class SettingsTest {
 
     @Test(dataProvider = "dataInvalidWinningLimit", expectedExceptions = InvalidSettingException.class)
     public void testInvalidSetWinningLimit(int rowSize, int columnSize, int winningLimit) throws InvalidSettingException {
+        //Act
         settings.setRowSize(rowSize);
         settings.setColumnSize(columnSize);
         settings.setWinningLimit(winningLimit);
+
+        //Assert
         Assert.assertEquals(settings.getWinningLimit(), winningLimit);
     }
 
@@ -126,7 +141,10 @@ public class SettingsTest {
 
     @Test(dataProvider = "dataSettingRounds")
     public void testSetNumberOfRounds(int numberOfRounds, int result) throws InvalidSettingException {
+        //Act
         settings.setNumberOfRounds(numberOfRounds);
+
+        //Assert
         Assert.assertEquals(settings.getNumberOfRounds(), result);
     }
 }

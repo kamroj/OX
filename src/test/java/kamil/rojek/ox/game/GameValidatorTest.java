@@ -14,9 +14,11 @@ public class GameValidatorTest {
 
     @Test
     public void testGameValidatorCreation() throws BoardCreatorException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         GameValidator gameValidator = new GameValidator(board);
 
+        //Assert
         Assert.assertNotNull(gameValidator);
     }
 
@@ -31,9 +33,11 @@ public class GameValidatorTest {
 
     @Test(dataProvider = "dataFeeldsValidationReturnTrue")
     public void testValidateIfSeedIsFreeToTake(int rowNumber, int columnNumber) throws BoardCreatorException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         GameValidator gameValidator = new GameValidator(board);
 
+        //Act & Assert
         Assert.assertTrue(gameValidator.validateSeed(rowNumber, columnNumber));
     }
 
@@ -48,120 +52,152 @@ public class GameValidatorTest {
 
     @Test(dataProvider = "testFeeldsValidationReturnFalse")
     public void testValidateIfSeedIsNotAvaibleToTakeByPlayer(int rowNumber, int columnNumber, SeedType type) throws BoardCreatorException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[rowNumber][columnNumber].type = type;
         GameValidator gameValidator = new GameValidator(board);
 
+        //Act & Assert
         Assert.assertFalse(gameValidator.validateSeed(rowNumber, columnNumber));
     }
 
     @Test
     public void testValidationIfPlayerWonRoundHorizontalyRight() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
+
         board.fields[0][0].type = SeedType.Cross;
         board.fields[0][1].type = SeedType.Cross;
         board.fields[0][2].type = SeedType.Cross;
 
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertTrue(gameValidator.validateWin(0, 0));
     }
 
     @Test
     public void testValidationIfPlayerWonRoundHorizontalyLeft() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[0][0].type = SeedType.Cross;
         board.fields[0][1].type = SeedType.Cross;
         board.fields[0][2].type = SeedType.Cross;
 
+        //Act && Assert
         GameValidator gameValidator = new GameValidator(board);
         Assert.assertTrue(gameValidator.validateWin(0, 2));
     }
 
     @Test
     public void testValidationIfPlayerWonRoundHorizontaly() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[0][0].type = SeedType.Cross;
         board.fields[0][1].type = SeedType.Cross;
         board.fields[0][2].type = SeedType.Cross;
 
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertTrue(gameValidator.validateWin(0, 1));
     }
 
     @Test
     public void testValidationIfPlayerWonRoundVerticlyDown() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[0][0].type = SeedType.Cross;
         board.fields[1][0].type = SeedType.Cross;
         board.fields[2][0].type = SeedType.Cross;
 
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertTrue(gameValidator.validateWin(0, 0));
     }
 
     @Test
     public void testValidationIfPlayerWonRoundVerticlyUp() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[0][0].type = SeedType.Cross;
         board.fields[1][0].type = SeedType.Cross;
         board.fields[2][0].type = SeedType.Cross;
 
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertTrue(gameValidator.validateWin(2, 0));
     }
 
     @Test
     public void testValidationIfPlayerWonRoundDiagonallyLeftDown() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[0][0].type = SeedType.Cross;
         board.fields[1][1].type = SeedType.Cross;
         board.fields[2][2].type = SeedType.Cross;
 
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertTrue(gameValidator.validateWin(0, 0));
     }
 
     @Test
     public void testValidationIfPlayerWonRoundDiagonallyLeftUp() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[0][0].type = SeedType.Cross;
         board.fields[1][1].type = SeedType.Cross;
         board.fields[2][2].type = SeedType.Cross;
 
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertTrue(gameValidator.validateWin(2, 2));
     }
 
     @Test
     public void testValidationIfPlayerWonRoundDiagonallyRightDown() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[0][2].type = SeedType.Cross;
         board.fields[1][1].type = SeedType.Cross;
         board.fields[2][0].type = SeedType.Cross;
 
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertTrue(gameValidator.validateWin(1, 1));
     }
 
     @Test
     public void testValidationIfPlayerWonRoundDiagonallyRightUp() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[2][0].type = SeedType.Cross;
         board.fields[1][1].type = SeedType.Cross;
         board.fields[0][2].type = SeedType.Cross;
 
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertTrue(gameValidator.validateWin(1, 1));
     }
 
     @Test
     public void test() throws BoardCreatorException, PlayerSeedTypeException {
+        //Arrange
         Board board = new BoardCreator().createNewBoard(3,3);
         board.fields[0][0].type = SeedType.Cross;
         board.fields[1][0].type = SeedType.Nought;
         board.fields[1][1].type = SeedType.Cross;
 
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertFalse(gameValidator.validateWin(0, 0));
     }
 
@@ -202,7 +238,10 @@ public class GameValidatorTest {
 
     @Test(dataProvider = "dataFillBoardWithSeedsWithWinCombination")
     public void testValidationIfPlayerWon(Board board, int rowNumber, int columnNumber, boolean result){
+        //Arrange
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertEquals(gameValidator.validateWin(rowNumber, columnNumber), result);
     }
 
@@ -226,7 +265,10 @@ public class GameValidatorTest {
 
     @Test(dataProvider = "dataFillBoardWithSeedsWithDrawCombination")
     public void testGameValidatorDraw(Board board){
+        //Arrange
         GameValidator gameValidator = new GameValidator(board);
+
+        //Act && Assert
         Assert.assertTrue(gameValidator.isDraw());
     }
 

@@ -8,14 +8,10 @@ public class RoundTest {
 
     @Test
     public void testRoundObjectIfItsNotNull() throws PlayerSeedTypeException {
+        //Arrange
         Round round = new Round(new Player("Kamil", SeedType.Cross));
+
+        //Assert
         Assert.assertNotNull(round);
-    }
-
-    @Test
-    public void testGetLastMarkedRow() throws PlayerSeedTypeException {
-        Player player = new Player("Kamil", SeedType.Cross);
-        Round round = new Round(player);
-
     }
 }

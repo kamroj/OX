@@ -8,6 +8,10 @@ import kamil.rojek.ox.menu.Settings;
 
 import java.util.Scanner;
 
+/**
+ * Main logic of game
+ * @author Kamil Rojek
+ */
 public class Game implements IGame {
     private IPlayers players;
     private Player player;
@@ -16,12 +20,21 @@ public class Game implements IGame {
     private Scanner scanner;
     private int roundCounter = 0;
 
+    /**
+     *
+     * @param players players container
+     * @param settings current settings
+     * @param scanner injecting scanner for further automated tests
+     */
     public Game(IPlayers players, Settings settings, Scanner scanner) {
         this.players = players;
         this.settings = settings;
         this.scanner = scanner;
     }
 
+    /**
+     * game initialization
+     */
     public void startGame(){
         ScoreBoard scoreBoard = new ScoreBoard(players);
 

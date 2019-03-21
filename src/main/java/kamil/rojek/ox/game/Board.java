@@ -3,8 +3,7 @@ package kamil.rojek.ox.game;
 import java.util.Arrays;
 
 /**
- * Board holding fields
- *
+ * Main board that holds seeds (marks X and O)
  * @author Kamil Rojek
  */
 class Board {
@@ -17,6 +16,12 @@ class Board {
         fields = new Seed[rowsNumber][columnsNumber];
     }
 
+    /**
+     *
+     * @param rowNumber number of rows
+     * @param columnNumber number of columns
+     * @param type Seed type
+     */
     void markField(int rowNumber, int columnNumber, SeedType type) {
         fields[rowNumber][columnNumber].type = type;
     }

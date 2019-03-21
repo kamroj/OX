@@ -17,6 +17,7 @@ public class ValidatorFromOutput {
 
     @Test
     public void testValidatorFromOutput() throws IOException {
+        //Arrange
         FileReader fileReader = new FileReader("WinValidatorTestCase");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -35,6 +36,8 @@ public class ValidatorFromOutput {
         Scanner scanner = new Scanner(sb.toString());
         Game game = new Game(players, settings, scanner);
         MenuDisplay menuDisplay = new MenuDisplay(game, settings, scanner);
+
+        //Act && Assert
         menuDisplay.initiliazeMenu();
     }
 

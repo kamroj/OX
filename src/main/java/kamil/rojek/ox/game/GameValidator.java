@@ -1,26 +1,56 @@
 package kamil.rojek.ox.game;
 
+/**
+ * Algorithm that checks win and availability of seed on the board
+ * @author Kamil Rojek
+ */
 class GameValidator {
     private Board board;
     private SeedType type;
     private int fieldsWithSameTypeCouter = 0;
     private int winningLimit = 3;
 
+    /**
+     * Default winning condition is set to 3
+     * @param board takes current board
+     */
+
     GameValidator(Board board) {
         this.board = board;
     }
+
+    /**
+     *
+     * @param board takes current board
+     * @param winningLimit set winning condition limit
+     */
 
     GameValidator(Board board, int winningLimit) {
         this.board = board;
         this.winningLimit = winningLimit;
     }
 
+
+    /**
+     * Validate if seed with parameters rowNumber and columnNumber is available to take
+     * @param rowNumber row number
+     * @param columnNumber column number
+     * @return true if is available or false if seed is taken
+     */
     boolean validateSeed(int rowNumber, int columnNumber) {
         return rowNumber >= 0 && rowNumber < board.fields.length &&
                 columnNumber >= 0 && columnNumber < board.fields.length &&
                 board.fields[rowNumber][columnNumber].type.equals(SeedType.None);
     }
 
+
+    /**
+     * validate horizontally, vertically and diagonally winning conditions start from
+     * point on board when last seed was placed
+     * @param rowNumber row number
+     * @param columnNumber column number
+     * @return true if winning condition limit succeed false if it fails
+     */
     boolean validateWin(int rowNumber, int columnNumber) {
         type = board.fields[rowNumber][columnNumber].type;
 
@@ -30,6 +60,12 @@ class GameValidator {
 
     }
 
+
+    /**
+     * validate if all seeds are taken and not winning condition limit succeed
+     * @return true if all seeds are taken and no winning condition limit succeed,
+     *          false if winning condition limit succeed
+     */
     boolean isDraw() {
         boolean isDraw = true;
 

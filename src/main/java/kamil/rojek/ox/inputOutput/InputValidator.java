@@ -12,9 +12,11 @@ public class InputValidator {
         this.scanner = scanner;
     }
 
+    /**
+     * get input from player which is validated
+     * @return int
+     */
     public int getIntegerInput(){
-        //Scanner scanner = new Scanner(System.in);
-
         while (!scanner.hasNextInt()) {
             if(scanner.hasNext("quit")){
                 SoutWrapper.getInstance().getMsg(LocalizationKey.GOODBYE_MSG);
