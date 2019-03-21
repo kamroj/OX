@@ -6,17 +6,17 @@ import java.util.Scanner;
  * @author Kamil Rojek
  */
 public class InputValidator {
-    //private Scanner scanner;
+    private Scanner scanner;
 
-//    public InputValidator(Scanner scanner) {
-//        this.scanner = scanner;
-//    }
+    public InputValidator(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
-    public static int getIntegerInput(){
-        Scanner scanner = new Scanner(System.in);
+    public int getIntegerInput(){
+        //Scanner scanner = new Scanner(System.in);
 
         while (!scanner.hasNextInt()) {
-            if(scanner.next().equals("q")){
+            if(scanner.hasNext("quit")){
                 SoutWrapper.getInstance().getMsg(LocalizationKey.GOODBYE_MSG);
                 System.exit(0);
             }

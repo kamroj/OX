@@ -6,21 +6,24 @@ import kamil.rojek.ox.inputOutput.SoutWrapper;
 import kamil.rojek.ox.menu.MenuDisplay;
 import kamil.rojek.ox.menu.Settings;
 
+import java.util.Scanner;
+
 public class Game implements IGame {
     private IPlayers players;
     private Player player;
     private Board board;
     private Settings settings;
-    private ScoreBoard scoreBoard;
+    private Scanner scanner;
     private int roundCounter = 0;
 
-    public Game(IPlayers players, Settings settings) {
+    public Game(IPlayers players, Settings settings, Scanner scanner) {
         this.players = players;
         this.settings = settings;
+        this.scanner = scanner;
     }
 
     public void startGame(){
-        scoreBoard = new ScoreBoard(players);
+        ScoreBoard scoreBoard = new ScoreBoard(players);
 
         while (roundCounter != settings.getNumberOfRounds()) {
             initialize();
@@ -38,7 +41,7 @@ public class Game implements IGame {
         Round round;
 
         do {
-            round = new Round(player);
+            round = new Round(player, scanner);
             boardDisplay.updateView(board);
             round.startRound(board);
             player = players.getNextPlayer();
@@ -74,7 +77,7 @@ public class Game implements IGame {
     }
 
     private void gameEnded() {
-        MenuDisplay menuDisplay = new MenuDisplay(this, settings);
+        MenuDisplay menuDisplay = new MenuDisplay(this, settings, scanner);
         menuDisplay.endingQuery();
     }
 }

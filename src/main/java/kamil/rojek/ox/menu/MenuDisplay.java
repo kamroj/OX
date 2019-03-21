@@ -7,16 +7,26 @@ import kamil.rojek.ox.inputOutput.Language;
 import kamil.rojek.ox.inputOutput.LocalizationKey;
 import kamil.rojek.ox.inputOutput.SoutWrapper;
 
+import java.util.Scanner;
+
 /**
  * @author Kamil Rojek
  */
 public class MenuDisplay {
     private IGame game;
     private Settings settings;
+    private InputValidator inputValidator;
 
     public MenuDisplay(IGame game, Settings settings) {
         this.game = game;
         this.settings = settings;
+        inputValidator = new InputValidator(new Scanner(System.in));
+    }
+
+    public MenuDisplay(IGame game, Settings settings, Scanner scanner) {
+        this.game = game;
+        this.settings = settings;
+        inputValidator = new InputValidator(scanner);
     }
 
     public void initiliazeMenu() {
@@ -32,7 +42,7 @@ public class MenuDisplay {
                 initiliazeMenu();
             case 4:
                 SoutWrapper.getInstance().getMsg(LocalizationKey.GOODBYE_MSG);
-                System.exit(0);
+                break;
         }
     }
 
@@ -42,7 +52,8 @@ public class MenuDisplay {
                 initiliazeMenu();
                 break;
             case 2:
-                System.exit(0);
+                SoutWrapper.getInstance().getMsg(LocalizationKey.GOODBYE_MSG);
+                break;
         }
     }
 
@@ -58,7 +69,7 @@ public class MenuDisplay {
         SoutWrapper.printMsg("-------------------------");
 
         do {
-            selection = InputValidator.getIntegerInput();
+            selection = inputValidator.getIntegerInput();
         } while (selection < 1 || selection > 4);
 
         return selection;
@@ -115,7 +126,7 @@ public class MenuDisplay {
         SoutWrapper.printMsg("-------------------------");
 
         do {
-            selection = InputValidator.getIntegerInput();
+            selection = inputValidator.getIntegerInput();
         } while (selection < 1 || selection > 5);
 
         return selection;
@@ -126,9 +137,9 @@ public class MenuDisplay {
         while (!success) {
             try {
                 SoutWrapper.getInstance().getMsg(LocalizationKey.SET_ROW_SIZE_INFO);
-                settings.setRowSize(InputValidator.getIntegerInput());
+                settings.setRowSize(inputValidator.getIntegerInput());
                 SoutWrapper.getInstance().getMsg(LocalizationKey.SET_COLUMN_SIZE_INFO);
-                settings.setColumnSize(InputValidator.getIntegerInput());
+                settings.setColumnSize(inputValidator.getIntegerInput());
                 success = true;
             } catch (InvalidSettingException e) {
                 SoutWrapper.printMsg(e.getMessage());
@@ -143,7 +154,7 @@ public class MenuDisplay {
         while (!success) {
             try {
                 SoutWrapper.getInstance().getMsg(LocalizationKey.SET_WINNING_LIMIT_INFO);
-                settings.setWinningLimit(InputValidator.getIntegerInput());
+                settings.setWinningLimit(inputValidator.getIntegerInput());
                 success = true;
             } catch (InvalidSettingException e) {
                 SoutWrapper.printMsg(e.getMessage());
@@ -158,7 +169,7 @@ public class MenuDisplay {
         while (!success) {
             try {
                 SoutWrapper.getInstance().getMsg(LocalizationKey.SET_NUMBER_OF_ROUNDS_INFO);
-                settings.setNumberOfRounds(InputValidator.getIntegerInput());
+                settings.setNumberOfRounds(inputValidator.getIntegerInput());
                 success = true;
             } catch (InvalidSettingException e) {
                 SoutWrapper.printMsg(e.getMessage());
@@ -173,12 +184,12 @@ public class MenuDisplay {
 
         SoutWrapper.getInstance().getMsg(LocalizationKey.GAME_ENDED_INFO);
         SoutWrapper.printMsg("-------------------------");
-        SoutWrapper.getInstance().getMsg(LocalizationKey.GO_MAIN_MENU);
-        SoutWrapper.getInstance().getMsg(LocalizationKey.QUIT);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.GO_MENU_ENDING_QUERY);
+        SoutWrapper.getInstance().getMsg(LocalizationKey.QUIT_ENDING_QUERY);
         SoutWrapper.printMsg("-------------------------");
 
         do {
-            selection = InputValidator.getIntegerInput();
+            selection = inputValidator.getIntegerInput();
         } while (selection < 1 || selection > 2);
 
         return selection;
@@ -194,10 +205,9 @@ public class MenuDisplay {
         SoutWrapper.printMsg("-------------------------");
 
         do {
-            selection = InputValidator.getIntegerInput();
+            selection = inputValidator.getIntegerInput();
         } while (selection < 1 || selection > 3);
 
         return selection;
     }
-
 }
