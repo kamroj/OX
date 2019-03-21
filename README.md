@@ -8,10 +8,11 @@ For more information: https://en.wikipedia.org/wiki/Tic-tac-toe
 - Please use default console font.
 
 ## RUNNING
-To run project without tests run bash script "runProject.sh" from OX/ folder.
-To run project with tests run bash script "runProjectWithTests.sh" from OX/ folder.
+Info:
+- to run project without tests run bash script "runProject.sh" from OX/ folder.
+- to run project with tests run bash script "runProjectWithTests.sh" from OX/ folder.
 
-Game configure info:
+Game config info:
 - game is for two players (Player 1 (X), Player 2 (O)), first is always Player 1
 - you can change size of board where 3x3 is minimum 30x30 maximum dimensions
 - you can change winning condition limit where minimum is 3 maximum is bigger dimension length
