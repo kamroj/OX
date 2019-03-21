@@ -11,6 +11,10 @@ For more information: https://en.wikipedia.org/wiki/Tic-tac-toe
 Info:
 - to run project without tests run bash script "runProject.sh" from OX/ folder.
 - to run project with tests run bash script "runProjectWithTests.sh" from OX/ folder.
+- to run test that validates input taken from file run bash script "runProjectWithTestFromOutput.sh" from OX/folder.
+
+To change parameters of automated test from file open WinValidatorTestCase.
+If you have problems with permissions try to set chmod 755 in bash to file that you want to run.
 
 Game config info:
 - game is for two players (Player 1 (X), Player 2 (O)), first is always Player 1
