@@ -22,26 +22,34 @@
 2
 // -> change number of rounds
 3
-// -> number of rows
+// -> number of rounds
 1
+// -> change board size
+1
+// -> set number of rows
+6
+// -> set number of columns
+3
+// -> change winning limit
+2
+// -> set winning limit 
+3
 // -> go to main menu
 5
 // -> start game
 1
-// -> runa gracza pierwszego
-0
-0
-// -> runda gracza drugiego
-1
-1
-// -> runda gracza pierwszego
-1
-0
-// -> runda gracza drugiego
+//
+//
+//
+// -> sekwencja graczy
 2
 2
-// -> runda gracza pierwszego
+0
+0
+1
 2
 0
-// -> wyjście z gry
+2
+3
+2
 2

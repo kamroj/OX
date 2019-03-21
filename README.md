@@ -11,7 +11,7 @@ For more information: https://en.wikipedia.org/wiki/Tic-tac-toe
 Info:
 - to run project without tests run bash script "runProject.sh" from OX/ folder.
 - to run project with tests run bash script "runProjectWithTests.sh" from OX/ folder.
-- to run test that validates input taken from file run bash script "runProjectWithTestFromOutput.sh" from OX/folder.
+- to run test that validates input taken from file run bash script from OX/folder "runProjectWithTestFromOutput.sh $1" where $1 is path to test cases e.g. ./runProjectWithTestFromOutput.sh TestCases/TC.1.6X3 -3WX.
 
 To change parameters of automated test from file open WinValidatorTestCase.
 If you have problems with permissions try to set chmod 755 in bash to file that you want to run.
