@@ -23,7 +23,7 @@
 // -> change board size
 1
 // -> set number of rows
-3
+4
 // -> set number of columns
 3
 // -> change winning limit
@@ -45,20 +45,18 @@
 0
 0
 0
-2
-2
 1
 1
+1
+3
+3
+3
+0
+2
 0
 2
 2
-2
 0
-1
 2
-0
-1
-1
-1
 // -> end game
 2

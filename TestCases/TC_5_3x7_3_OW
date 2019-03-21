@@ -1,0 +1,62 @@
+//! WAŻNE ! każdy input podajemy jako liczbę całkowitą bez białych znaków prócz przejścia do nowej lini. Z gry możemy wyjść w każdym momencie wpisując "quit"
+//
+//WIZUALIZACJA MENU
+// 1 - Start game -> rozpoczyna grę
+// 2 - Options -> otwiera opcje
+// 3 - Credential -> informacje
+// 4 - Quit -> wychodzi z gry
+//
+// OPCJE:
+// 1 - Change board size -> podajemy wtedy pierwsze ilość wierszy następnie ilość kolumn -> wracamy do OPCJI
+// 2 - Change winning limit -> podajemy limit warunku wygranej min 3 maks mniejszy bądź równy niż większy rozmiar naszej planszy -> wracamy do OPCJI
+// 3 - Change number of rounds -> podajemy liczbę rund min 1 maks 10 -> wracamy do OPCJI
+// 4 - Change language -> input 1 to język POLSKI input 2 to język ANGIELSKI input 3 to powrót do OPCJI -> wracamy do OPCJI
+// 5 - Go to main menu -> wracamy do MENU GŁOWNEGO
+//
+// OPCJE PO SKOŃCZENIU GRY
+// 1 - Go back to MainMenu
+// 2 - Quit the game
+//
+// ROZPOCZĘCIE SEKWENCJI : pierwsze wpisujemy nr wiersza, drugi numer kolumny
+// -> opcje
+2
+// -> change board size
+1
+// -> set number of rows
+3
+// -> set number of columns
+7
+// -> change winning limit
+2
+// -> set winning limit 
+3
+// -> change number of rounds
+3
+// -> number of rounds
+1
+// -> go to main menu
+5
+// -> start game
+1
+//
+//
+//
+// -> players move
+2
+5
+0
+6
+1
+1
+0
+3
+2
+0
+2
+6
+2
+3
+1
+6
+// -> end game
+2

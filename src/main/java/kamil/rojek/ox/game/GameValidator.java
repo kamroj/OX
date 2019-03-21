@@ -105,14 +105,16 @@ class GameValidator {
             return true;
         else if (checkDiagonallyUpLeftDirection(rowNumber, columnNumber))
             return true;
-        else if (checkDiagonallyDownRightDirection(rowNumber, columnNumber))
+
+        fieldsWithSameTypeCouter = 1;
+
+        if (checkDiagonallyDownRightDirection(rowNumber, columnNumber))
             return true;
         else if (checkDiagonallyUpRightDirection(rowNumber, columnNumber))
             return true;
-        else {
-            fieldsWithSameTypeCouter = 0;
-            return false;
-        }
+
+        fieldsWithSameTypeCouter = 0;
+        return false;
     }
 
     private boolean checkHorizontalRightDirection(int rowNumber, int columnNumber) {
@@ -201,6 +203,7 @@ class GameValidator {
             ++rowToCheck;
             ++columnToCheck;
         }
+        System.out.println("checkDiagonallyDownLeftDirection");
         return true;
     }
 
@@ -222,6 +225,7 @@ class GameValidator {
             else
                 return false;
         }
+        System.out.println("checkDiagonallyUpLeftDirection");
         return true;
     }
 
@@ -241,6 +245,7 @@ class GameValidator {
             else
                 return false;
         }
+        System.out.println("12");
         return true;
     }
 
@@ -261,6 +266,7 @@ class GameValidator {
             else
                 return false;
         }
+        System.out.println("123123");
         return true;
     }
 }
