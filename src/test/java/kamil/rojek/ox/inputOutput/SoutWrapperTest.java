@@ -41,9 +41,9 @@ public class SoutWrapperTest {
 
     @Test(dataProvider = "dataForInput")
     public void testValidInputPrinting(String input) throws IOException {
-        PrintStream ps = new PrintStream(new FileOutputStream("logTest.txt"));
+        PrintStream ps = new PrintStream(new FileOutputStream("testLog.txt"));
         SoutWrapper.printMsg(input, ps);
-        BufferedReader reader = new BufferedReader(new FileReader("logTest.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("testLog.txt"));
 
         String line;
         while ((line = reader.readLine()) != null) {
@@ -53,9 +53,9 @@ public class SoutWrapperTest {
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testInvalidInputPrinting() throws IOException {
-        PrintStream ps = new PrintStream(new FileOutputStream("logTest.txt"));
+        PrintStream ps = new PrintStream(new FileOutputStream("testLog.txt"));
         SoutWrapper.printMsg(null, ps);
-        BufferedReader reader = new BufferedReader(new FileReader("logTest.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("testLog.txt"));
 
         String line;
         while ((line = reader.readLine()) != null) {
