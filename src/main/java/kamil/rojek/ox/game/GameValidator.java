@@ -39,7 +39,7 @@ class GameValidator {
      */
     boolean validateSeed(int rowNumber, int columnNumber) {
         return rowNumber >= 0 && rowNumber < board.fields.length &&
-                columnNumber >= 0 && columnNumber < board.fields.length &&
+                columnNumber >= 0 && columnNumber < board.fields[0].length &&
                 board.fields[rowNumber][columnNumber].type.equals(SeedType.None);
     }
 
@@ -90,9 +90,9 @@ class GameValidator {
     }
 
     private boolean validateVertically(int rowNumber, int columnNumber) {
-        if (checkHorizontalDownDirection(rowNumber, columnNumber))
+        if (checkVerticalDownDirection(rowNumber, columnNumber))
             return true;
-        else if (checkHorizontalUpDirection(rowNumber, columnNumber))
+        else if (checkVerticalUpDirection(rowNumber, columnNumber))
             return true;
         else {
             fieldsWithSameTypeCouter = 0;
@@ -119,7 +119,7 @@ class GameValidator {
         int columnToCheck = columnNumber;
 
         while (fieldsWithSameTypeCouter != winningLimit) {
-            if (board.fields.length - 1 < columnToCheck)
+            if (columnToCheck >= board.fields[0].length)
                 return false;
 
             if (board.fields[rowNumber][columnToCheck].type.equals(type)) {
@@ -147,11 +147,11 @@ class GameValidator {
         return true;
     }
 
-    private boolean checkHorizontalDownDirection(int rowNumber, int columnNumber) {
+    private boolean checkVerticalDownDirection(int rowNumber, int columnNumber) {
         int rowToCheck = rowNumber;
 
         while (fieldsWithSameTypeCouter != winningLimit) {
-            if (board.fields.length - 1 < rowToCheck)
+            if (board.fields.length <= rowToCheck)
                 return false;
 
             if (board.fields[rowToCheck][columnNumber].type.equals(type)) {
@@ -162,7 +162,7 @@ class GameValidator {
         return true;
     }
 
-    private boolean checkHorizontalUpDirection(int rowNumber, int columnNumber) {
+    private boolean checkVerticalUpDirection(int rowNumber, int columnNumber) {
         int rowToCheck = rowNumber;
 
         while (fieldsWithSameTypeCouter != winningLimit) {
@@ -184,7 +184,7 @@ class GameValidator {
         int columnToCheck = columnNumber;
 
         while (fieldsWithSameTypeCouter != winningLimit) {
-            if (rowToCheck >= board.fields.length || columnToCheck >= board.fields.length)
+            if (rowToCheck >= board.fields.length  || columnToCheck >= board.fields[0].length)
                 return false;
 
             if (board.fields[rowToCheck][columnToCheck].type.equals(type)) {
@@ -228,7 +228,7 @@ class GameValidator {
             rowToCheck--;
             columnToCheck++;
 
-            if (rowToCheck < 0 || columnToCheck >= board.fields.length) {
+            if (rowToCheck < 0 || columnToCheck >= board.fields[0].length) {
                 return false;
             }
 
