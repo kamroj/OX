@@ -1,9 +1,9 @@
-package kamil.rojek.ox;
+package kamil.rojek.ox.game;
 
 /**
  * @author Kamil Rojek
  */
-public enum SeedType {
+enum SeedType {
     Nought("O"),
     Cross("X"),
     None(" ");
@@ -12,5 +12,9 @@ public enum SeedType {
 
     SeedType(String type){
         this.type = type;
+    }
+
+    public String getValue(){
+        return type;
     }
 }

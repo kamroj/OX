@@ -1,4 +1,4 @@
-package kamil.rojek.ox;
+package kamil.rojek.ox.game;
 
 import java.util.Arrays;
 
@@ -7,14 +7,18 @@ import java.util.Arrays;
  *
  * @author Kamil Rojek
  */
-public class Board {
+class Board {
     Seed[][] fields;
 
-    public Board(int columnsNumber, int rowsNumber) {
-        if (columnsNumber <= 2 || rowsNumber <= 2)
+    Board(int rowsNumber, int columnsNumber) {
+        if (rowsNumber <= 2 || columnsNumber <= 2)
             throw new IllegalArgumentException("Minimum fields size must be 3x3");
 
-        fields = new Seed[columnsNumber][rowsNumber];
+        fields = new Seed[rowsNumber][columnsNumber];
+    }
+
+    void markField(int rowNumber, int columnNumber, SeedType type) {
+        fields[rowNumber][columnNumber].type = type;
     }
 
     @Override
