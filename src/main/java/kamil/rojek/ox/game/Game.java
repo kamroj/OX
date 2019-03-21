@@ -90,7 +90,7 @@ public class Game implements IGame {
     }
 
     private void gameEnded() {
-        MenuDisplay menuDisplay = new MenuDisplay(this, settings, scanner);
+        MenuDisplay menuDisplay = new MenuDisplay(new Game(new Players(), settings, scanner), settings, scanner);
         menuDisplay.endingQuery();
     }
 }

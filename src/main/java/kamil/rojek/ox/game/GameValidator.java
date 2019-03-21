@@ -122,10 +122,12 @@ class GameValidator {
             if (columnToCheck >= board.fields[0].length)
                 return false;
 
-            if (board.fields[rowNumber][columnToCheck].type.equals(type)) {
+            if (board.fields[rowNumber][columnToCheck].type.equals(type))
                 fieldsWithSameTypeCouter++;
-            }
-            columnToCheck++;
+            else
+                return false;
+
+            ++columnToCheck;
         }
         return true;
     }
@@ -134,15 +136,17 @@ class GameValidator {
         int columnToCheck = columnNumber;
 
         while (fieldsWithSameTypeCouter != winningLimit) {
-            columnToCheck--;
+            --columnToCheck;
 
-            if (columnToCheck < 0) {
+            if (columnToCheck < 0)
                 return false;
-            }
 
-            if (board.fields[rowNumber][columnToCheck].type.equals(type)) {
+
+            if (board.fields[rowNumber][columnToCheck].type.equals(type))
                 fieldsWithSameTypeCouter++;
-            }
+            else
+                return false;
+
         }
         return true;
     }
@@ -154,10 +158,12 @@ class GameValidator {
             if (board.fields.length <= rowToCheck)
                 return false;
 
-            if (board.fields[rowToCheck][columnNumber].type.equals(type)) {
+            if (board.fields[rowToCheck][columnNumber].type.equals(type))
                 fieldsWithSameTypeCouter++;
-            }
-            rowToCheck++;
+            else
+                return false;
+
+            ++rowToCheck;
         }
         return true;
     }
@@ -166,15 +172,15 @@ class GameValidator {
         int rowToCheck = rowNumber;
 
         while (fieldsWithSameTypeCouter != winningLimit) {
-            rowToCheck--;
+            --rowToCheck;
 
-            if (rowToCheck < 0) {
+            if (rowToCheck < 0)
                 return false;
-            }
 
-            if (board.fields[rowToCheck][columnNumber].type.equals(type)) {
+            if (board.fields[rowToCheck][columnNumber].type.equals(type))
                 fieldsWithSameTypeCouter++;
-            }
+            else
+                return false;
         }
         return true;
     }
@@ -187,12 +193,13 @@ class GameValidator {
             if (rowToCheck >= board.fields.length  || columnToCheck >= board.fields[0].length)
                 return false;
 
-            if (board.fields[rowToCheck][columnToCheck].type.equals(type)) {
+            if (board.fields[rowToCheck][columnToCheck].type.equals(type))
                 fieldsWithSameTypeCouter++;
-            }
+            else
+                return false;
 
-            rowToCheck++;
-            columnToCheck++;
+            ++rowToCheck;
+            ++columnToCheck;
         }
         return true;
     }
@@ -204,18 +211,16 @@ class GameValidator {
 
         while (fieldsWithSameTypeCouter != winningLimit) {
 
-            rowToCheck--;
-            columnToCheck--;
+            --rowToCheck;
+            --columnToCheck;
 
-            if (rowToCheck < 0 || columnToCheck < 0) {
+            if (rowToCheck < 0 || columnToCheck < 0)
                 return false;
-            }
 
-
-            if (board.fields[rowToCheck][columnToCheck].type.equals(type)) {
+            if (board.fields[rowToCheck][columnToCheck].type.equals(type))
                 fieldsWithSameTypeCouter++;
-            }
-
+            else
+                return false;
         }
         return true;
     }
@@ -225,17 +230,16 @@ class GameValidator {
         int columnToCheck = columnNumber;
 
         while (fieldsWithSameTypeCouter != winningLimit) {
-            rowToCheck--;
-            columnToCheck++;
+            --rowToCheck;
+            ++columnToCheck;
 
-            if (rowToCheck < 0 || columnToCheck >= board.fields[0].length) {
+            if (rowToCheck < 0 || columnToCheck >= board.fields[0].length)
                 return false;
-            }
 
-            if (board.fields[rowToCheck][columnToCheck].type.equals(type)) {
+            if (board.fields[rowToCheck][columnToCheck].type.equals(type))
                 fieldsWithSameTypeCouter++;
-            }
-
+            else
+                return false;
         }
         return true;
     }
@@ -246,17 +250,16 @@ class GameValidator {
 
         while (fieldsWithSameTypeCouter != winningLimit) {
 
-            rowToCheck++;
-            columnToCheck--;
+            ++rowToCheck;
+            --columnToCheck;
 
-            if (rowToCheck >= board.fields.length || columnToCheck < 0) {
+            if (rowToCheck >= board.fields.length || columnToCheck < 0)
                 return false;
-            }
 
-            if (board.fields[rowToCheck][columnToCheck].type.equals(type)) {
+            if (board.fields[rowToCheck][columnToCheck].type.equals(type))
                 fieldsWithSameTypeCouter++;
-            }
-
+            else
+                return false;
         }
         return true;
     }
