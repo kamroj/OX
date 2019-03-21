@@ -218,6 +218,13 @@ public class GameValidatorTest {
                                 new Mark(3,3, SeedType.Nought)))),
                                 2, 2, true},
 
+                {createBoardWithPresetOfFields(5,5,
+                        new ArrayList<>(Arrays.asList(
+                                new Mark(0,3, SeedType.Nought),
+                                new Mark(1,2, SeedType.Nought),
+                                new Mark(2,1, SeedType.Nought)))),
+                        2, 1, true},
+
                 {createBoardWithPresetOfFields(10,10,
                                 new ArrayList<>(Arrays.asList(
                                 new Mark(1,1, SeedType.Cross),
