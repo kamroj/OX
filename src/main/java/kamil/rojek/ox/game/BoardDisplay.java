@@ -1,5 +1,7 @@
 package kamil.rojek.ox.game;
 
+import kamil.rojek.ox.inputOutput.SoutWrapper;
+
 //przetestowac
 public class BoardDisplay {
     private Board board;
@@ -20,9 +22,9 @@ public class BoardDisplay {
 
         for (int i = 0; i < board.fields[0].length; i++) {
             if (i < 10)
-                System.out.print("  " + columnCounter + " ");
+                SoutWrapper.printMsg("  " + columnCounter + " ", true);
             else
-                System.out.print("  " + columnCounter);
+                SoutWrapper.printMsg("  " + columnCounter, true);
             columnCounter++;
         }
 
@@ -31,15 +33,15 @@ public class BoardDisplay {
 
         for (int i = 0; i < board.fields.length; i++) {
             if(i < 10)
-                System.out.print(rowCounter + "  | ");
+                SoutWrapper.printMsg(rowCounter + "  | ",true);
             else
-                System.out.print(rowCounter + " | ");
+                SoutWrapper.printMsg(rowCounter + " | ", true);
             rowCounter++;
 
             for (int j = 0; j < board.fields[i].length; j++) {
                 System.out.print(board.fields[i][j].type.getValue() + " | ");
             }
-            System.out.println();
+            SoutWrapper.printMsg("");
             lineGenerator();
         }
     }
@@ -51,15 +53,14 @@ public class BoardDisplay {
         for (int i = 0; i <= lineLongCounter(); i++) {
             sb.append("-");
         }
-
-        System.out.println(sb.toString());
+        SoutWrapper.printMsg(sb.toString());
     }
 
     private int lineLongCounter(){
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < board.fields[0].length; i++) {
-            sb.append(board.fields[0][i].type.getValue() + " | ");
+            sb.append(board.fields[0][i].type.getValue()).append(" | ");
         }
 
         return sb.toString().length();
