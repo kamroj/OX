@@ -71,7 +71,7 @@
                         <index>true</index>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>#FQN of your MainClass</mainClass>
+                            <mainClass>kamil.rojek.ox.AppMain</mainClass>
                         </manifest>
                         <manifestEntries>
                             <mode>development</mode>
